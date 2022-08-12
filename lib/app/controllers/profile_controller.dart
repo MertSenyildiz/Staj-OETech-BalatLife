@@ -85,12 +85,19 @@ class ProfileController extends GetxController with StateMixin {
           UserRepository.instance.setUser();
           imageFile=null;
           update();
+          _updateControllers();
         }else{
           SnackbarGenerator.authSnackbar(title: "edit", message: "edit_profile_error", auth: false);
         }
       });
   }
 
+  _updateControllers(){
+    addressController.text=UserRepository.instance.user!.adres;
+    phoneController.text = UserRepository.instance.user!.telefon.substring(3);
+    nameController.text = UserRepository.instance.user!.isim;
+    surnameController.text =UserRepository.instance.user!.soyIsim;
+  }
 
   imageSourceBottomSheet() {
     return Get.bottomSheet(

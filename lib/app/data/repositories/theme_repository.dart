@@ -20,6 +20,8 @@ class ThemeProvider extends GetxController{
 
   static ThemeProvider get instance => _instance;
 
+  bool  get isDark=>_provider.isDark;
+
   changeTheme(bool x)async{
     await _provider.setTheme(x);
   }

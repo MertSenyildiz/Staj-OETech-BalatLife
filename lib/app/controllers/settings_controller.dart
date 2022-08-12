@@ -8,7 +8,7 @@ import '../data/repositories/theme_repository.dart';
 
 class SettingsController extends GetxController{
   final lang =[{'title':'English','value':'en','flag_code':'GB'},{'title':'Türkçe','value':'tr','flag_code':'TR'}];
-  bool isDark=Get.isDarkMode;
+  bool isDark=ThemeProvider.instance.isDark;
   setLan(String langCode){
     LangRepository.instance.setLang(langCode);
   }

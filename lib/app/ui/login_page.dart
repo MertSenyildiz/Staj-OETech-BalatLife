@@ -160,7 +160,7 @@ class LoginPage extends GetView<LoginController> {
                     width: width,
                     //height: MediaQuery.of(context).size.height*3/4,
                     constraints: BoxConstraints.expand(),
-                    color: Colors.white,
+                    color: Get.isDarkMode? Theme.of(Get.context!).primaryColor:Colors.white,
                     child: SingleChildScrollView(
                       child: buildLoginForm(height,width),
                     )),
@@ -193,9 +193,6 @@ class LoginPage extends GetView<LoginController> {
                 validator: controller.validator,
                 keyboardType:TextInputType.emailAddress,
                   textInputAction: TextInputAction.next,
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(),
-                ),
               ),
               SizedBox(height: height * 2 / 32),
               Text(
@@ -207,10 +204,7 @@ class LoginPage extends GetView<LoginController> {
               TextFormField(
                   controller: controller.passwordController,
                   validator: controller.validator,
-                  obscureText: true,
-                  decoration: InputDecoration(
-                    border: OutlineInputBorder(),
-                  )),
+                  obscureText: true,),
               Row(
                 children: [
                   Obx(()=>Checkbox(
@@ -262,11 +256,11 @@ class LoginPage extends GetView<LoginController> {
                     }),
                   )*/CircularProgressIndicator()):null;},
                   child: Text('login'.tr),
-                  style: ButtonStyle(
+                  /*style: ButtonStyle(
                     backgroundColor:
                     MaterialStateProperty.all(
                         Colors.black87),
-                  ),
+                  ),*/
                 ),
               ),
               SizedBox(height: height * 1 / 32),

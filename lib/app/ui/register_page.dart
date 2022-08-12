@@ -149,9 +149,9 @@ class RegisterPage extends GetView<RegisterController> {
                     ):null;
                   },
                   child: Text('register'.tr),
-                  style: ButtonStyle(
+                  /*style: ButtonStyle(
                     backgroundColor: MaterialStateProperty.all(Colors.black87),
-                  ),
+                  ),*/
                 ),
               ),
               SizedBox(
@@ -176,7 +176,7 @@ class RegisterPage extends GetView<RegisterController> {
       textInputAction: TextInputAction.next,
       keyboardType: keyboard ?? TextInputType.text,
       obscureText: obscure,
-      decoration: InputDecoration(
+      /*decoration: InputDecoration(
         filled: true,
         fillColor: Colors.white,
         border: OutlineInputBorder(
@@ -187,7 +187,7 @@ class RegisterPage extends GetView<RegisterController> {
           borderSide: BorderSide(color: Colors.white),
           borderRadius: BorderRadius.circular(10.7),
         ),
-      ),
+      ),*/
       maxLines: allowMultiLine ? 2 : 1,
     );
   }
@@ -195,7 +195,7 @@ class RegisterPage extends GetView<RegisterController> {
   Widget buildPhoneInput(String? Function(String?) val) {
     return Container(
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: Get.isDarkMode? Theme.of(Get.context!).primaryColor:Colors.white,
         borderRadius: BorderRadius.circular(10.7),
       ),
       child: InternationalPhoneNumberInput(

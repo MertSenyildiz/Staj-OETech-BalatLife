@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:balatlife/app/controllers/settings_controller.dart';
 import 'package:balatlife/app/data/repositories/user_repository.dart';
 import 'package:balatlife/app/ui/widgets/drawer_widget.dart';
 import 'package:flutter/material.dart';
@@ -26,7 +27,7 @@ class ProfilePage extends GetView<ProfileController> {
         ],
       ),
       drawer: DrawerWidget(),
-      body: buildProfilEdit(),
+      body: buildProfilEdit(context),
     );
       /*DefaultTabController(
       length: 2,
@@ -97,7 +98,7 @@ class ProfilePage extends GetView<ProfileController> {
   });
 
 
-  buildProfilEdit(){
+  buildProfilEdit(BuildContext context){
     return SafeArea(child:ListView(
       physics: BouncingScrollPhysics(),
       padding: EdgeInsets.only(top:20),
@@ -119,94 +120,7 @@ class ProfilePage extends GetView<ProfileController> {
             child: Text(
                 UserRepository.instance.user!.mail,
                 style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold))),
-        Row(
-          children: [
-            Spacer(flex:3),
-            Expanded(flex:5,child: TextButton(onPressed: (){print("Controller a eklenecek");}, child: Text("change_password".tr),style:ButtonStyle(
-              overlayColor: MaterialStateProperty.all(
-                  Colors.transparent),
-            ),)),
-            Spacer(flex:3),
-          ],
-        ),
-        SizedBox(height: 20,),
-        Row(
-          children: [
-            Spacer(flex: 1),
-            Expanded(
-              flex: 4,
-              child: Text(
-                "name".tr,
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.w800),
-              ),
-            ),
-            Spacer(flex: 1),
-          ],
-        ),
-        Row(
-          children: [
-            Spacer(flex:1),
-            Expanded(flex:5,child: buildInput(cont: controller.nameController,allowMultiLine: false,)),
-            Spacer(flex:1)
-          ],
-        ),
-        SizedBox(height: 35,),
-        Row(
-          children: [
-            Spacer(flex: 1),
-            Expanded(
-              flex: 4,
-              child: Text(
-                "surname".tr,
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.w800),
-              ),
-            ),
-            Spacer(flex: 1),
-          ],
-        ),
-        Row(
-          children: [
-            Spacer(flex:1),
-            Expanded(flex:5,child: buildInput(cont: controller.surnameController,allowMultiLine: false,)),
-            Spacer(flex:1)
-          ],
-        ),
-        SizedBox(height: 35,),
-        Row(
-          children: [
-            Spacer(flex: 1),
-            Expanded(
-              flex: 4,
-              child: Text(
-                "phone".tr,
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.w800),
-              ),
-            ),
-            Spacer(flex: 1),
-          ],
-        ),
-        Row(children: [Spacer(flex:1),Expanded(flex:5 ,child:buildPhoneInput() ),Spacer(flex:1)],),
-        SizedBox(height: 35,),
-        Row(
-          children: [
-            Spacer(flex: 1),
-            Expanded(
-              flex: 4,
-              child: Text(
-                "address".tr,
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.w800),
-              ),
-            ),
-            Spacer(flex: 1),
-          ],
-        ),
-        Row(
-          children: [
-            Spacer(flex:1),
-            Expanded(flex:5,child: buildInput(cont: controller.addressController,allowMultiLine: true,)),
-            Spacer(flex:1)
-          ],
-        ),
+        buildInputs(context),
         SizedBox(height: 35,),
         Row(
           children: [
@@ -220,22 +134,121 @@ class ProfilePage extends GetView<ProfileController> {
     ));
   }
 
-  buildPhoneInput(){
-    return Container(
-      padding: EdgeInsets.all(5),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(10.7),
-      ),
-      child: InternationalPhoneNumberInput(
-        textFieldController: controller.phoneController,
-        countries: ['TR', 'GB'],
-        selectorConfig: SelectorConfig(
-          selectorType: PhoneInputSelectorType.DIALOG,
+  buildInputs(BuildContext context){
+    return Column(
+        children: [
+          Row(
+            children: [
+              Spacer(flex:3),
+              Expanded(flex:5,child: TextButton(onPressed: (){print("Controller a eklenecek");}, child: Text("change_password".tr),style:ButtonStyle(
+                overlayColor: MaterialStateProperty.all(
+                    Colors.transparent),
+              ),)),
+              Spacer(flex:3),
+            ],
+          ),
+          SizedBox(height: 20,),
+          Row(
+            children: [
+              Spacer(flex: 1),
+              Expanded(
+                flex: 4,
+                child: Text(
+                  "name".tr,
+                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.w800),
+                ),
+              ),
+              Spacer(flex: 1),
+            ],
+          ),
+          Row(
+            children: [
+              Spacer(flex:1),
+              Expanded(flex:5,child: buildInput(cont: controller.nameController,allowMultiLine: false,)),
+              Spacer(flex:1)
+            ],
+          ),
+          SizedBox(height: 35,),
+          Row(
+            children: [
+              Spacer(flex: 1),
+              Expanded(
+                flex: 4,
+                child: Text(
+                  "surname".tr,
+                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.w800),
+                ),
+              ),
+              Spacer(flex: 1),
+            ],
+          ),
+          Row(
+            children: [
+              Spacer(flex:1),
+              Expanded(flex:5,child: buildInput(cont: controller.surnameController,allowMultiLine: false,)),
+              Spacer(flex:1)
+            ],
+          ),
+          SizedBox(height: 35,),
+          Row(
+            children: [
+              Spacer(flex: 1),
+              Expanded(
+                flex: 4,
+                child: Text(
+                  "phone".tr,
+                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.w800),
+                ),
+              ),
+              Spacer(flex: 1),
+            ],
+          ),
+          Row(children: [Spacer(flex:1),Expanded(flex:5 ,child:buildPhoneInput(context) ),Spacer(flex:1)],),
+          SizedBox(height: 35,),
+          Row(
+            children: [
+              Spacer(flex: 1),
+              Expanded(
+                flex: 4,
+                child: Text(
+                  "address".tr,
+                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.w800),
+                ),
+              ),
+              Spacer(flex: 1),
+            ],
+          ),
+          Row(
+            children: [
+              Spacer(flex:1),
+              Expanded(flex:5,child: buildInput(cont: controller.addressController,allowMultiLine: true,)),
+              Spacer(flex:1)
+            ],
+          ),
+        ],
+      );
+  }
+
+  buildPhoneInput(BuildContext context){
+    return GetBuilder(
+      init: Get.find<SettingsController>(),
+        builder: (_){
+      return Container(
+        padding: EdgeInsets.all(5),
+        decoration: BoxDecoration(
+          color: Get.isDarkMode? Theme.of(context).primaryColor:Colors.white,
+          borderRadius: BorderRadius.circular(10.7),
         ),
-        onInputChanged: (_) => {controller.number = _},
-      ),
-    );
+        child: InternationalPhoneNumberInput(
+          textFieldController: controller.phoneController,
+          countries: ['TR', 'GB'],
+          selectorConfig: SelectorConfig(
+            selectorType: PhoneInputSelectorType.DIALOG,
+          ),
+          onInputChanged: (_) => {controller.number = _},
+        ),
+      );
+    });
   }
 
   Widget buildInput(
@@ -249,14 +262,14 @@ class ProfilePage extends GetView<ProfileController> {
       textInputAction: TextInputAction.next,
       keyboardType: keyboard ?? TextInputType.text,
       obscureText: obscure,
-      decoration: InputDecoration(
+      /*decoration: InputDecoration(
         filled: true,
         fillColor: Colors.white,
         border: OutlineInputBorder(
           borderSide: BorderSide(color: Colors.white),
           borderRadius: BorderRadius.circular(10),
         ),
-      ),
+      ),*/
       maxLines: allowMultiLine ? 2 : 1,
     );
   }

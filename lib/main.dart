@@ -28,7 +28,7 @@ void main() async {
       translationsKeys: AppTranslation.translations,
       fallbackLocale:Locale('en', 'US'),
       themeMode: ThemeMode.system,
-      darkTheme: ThemeData.dark(),
+      darkTheme: darkTheme,
     ));
 }
 

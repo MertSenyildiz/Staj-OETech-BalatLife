@@ -19,7 +19,7 @@ class AppPages {
     GetPage(
         name: Routes.REGISTER, page: () => RegisterPage(),bindings: [RegisterBinding()]),
     GetPage(
-        name: Routes.PROFILE, page: () => ProfilePage(),bindings: [ProfileBinding()]),
+        name: Routes.PROFILE, page: () => ProfilePage(),bindings: [ProfileBinding(),SettingsBinding()]),
     GetPage(
         name: Routes.SETTINGS, page: () => SettingsPage(),bindings:[SettingsBinding()]),
   ];
