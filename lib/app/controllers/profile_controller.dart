@@ -111,7 +111,7 @@ class ProfileController extends GetxController with StateMixin {
                 _buildTile(title:'from_gal',source:ImageSource.gallery,icon: Icons.image),
               ],
           ),
-           ),backgroundColor: Colors.white);
+           ),backgroundColor: Get.isDarkMode? Theme.of(Get.context!).primaryColor:Colors.white);
   }
 
   _buildTile({required String title,required ImageSource source,required IconData icon}){
