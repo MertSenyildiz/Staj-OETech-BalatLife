@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:balatlife/app/controllers/settings_controller.dart';
+import 'package:balatlife/app/data/repositories/theme_repository.dart';
 import 'package:balatlife/app/data/repositories/user_repository.dart';
 import 'package:balatlife/app/ui/widgets/drawer_widget.dart';
 import 'package:flutter/material.dart';
@@ -230,13 +231,12 @@ class ProfilePage extends GetView<ProfileController> {
   }
 
   buildPhoneInput(BuildContext context){
-    return GetBuilder(
-      init: Get.find<SettingsController>(),
+    return GetBuilder<SettingsController>(
         builder: (_){
       return Container(
         padding: EdgeInsets.all(5),
         decoration: BoxDecoration(
-          color: Get.isDarkMode? Theme.of(context).primaryColor:Colors.white,
+          color: ThemeProvider.instance.isDark? Theme.of(context).primaryColor:Colors.white,
           borderRadius: BorderRadius.circular(10.7),
         ),
         child: InternationalPhoneNumberInput(

@@ -63,7 +63,7 @@ class PrefProvider{
   }
 
   getTheme(){
-     bool isDark = _prefs.getBool('theme')??false;
+     bool isDark = _prefs.getBool('theme')??true;
      this.isDark=isDark;
      _ThemeMode(isDark);
      _ThemeData(isDark);
