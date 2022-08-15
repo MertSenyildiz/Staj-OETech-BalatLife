@@ -20,7 +20,7 @@ class _InitPageState extends State<InitPage>{
       DeviceOrientation.portraitUp,
     ]);
     WidgetsBinding.instance!.addPostFrameCallback((_) {
-      (UserRepository.instance.user!=null)?Get.offNamed('/profile'):Get.offNamed('/login');
+      (UserRepository.instance.user!=null)?Get.offNamed('/home'):Get.offNamed('/login');
     });
     return Center(child: CircularProgressIndicator());
   }

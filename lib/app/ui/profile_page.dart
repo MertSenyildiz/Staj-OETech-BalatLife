@@ -27,7 +27,6 @@ class ProfilePage extends GetView<ProfileController> {
           IconButton(onPressed:(){Get.find<AuthRepository>().logout();}, icon:Icon(Icons.logout))
         ],
       ),
-      drawer: DrawerWidget(),
       body: buildProfilEdit(context),
     );
       /*DefaultTabController(

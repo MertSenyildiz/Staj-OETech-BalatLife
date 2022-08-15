@@ -1,5 +1,7 @@
+import 'package:balatlife/app/bindings/home_binding.dart';
 import 'package:balatlife/app/bindings/regiter_bindings.dart';
 import 'package:balatlife/app/bindings/settings_binding.dart';
+import 'package:balatlife/app/ui/home_page.dart';
 import 'package:balatlife/app/ui/settings_page.dart';
 import 'package:get/get.dart';
 
@@ -22,5 +24,7 @@ class AppPages {
         name: Routes.PROFILE, page: () => ProfilePage(),bindings: [ProfileBinding(),SettingsBinding()]),
     GetPage(
         name: Routes.SETTINGS, page: () => SettingsPage(),bindings:[SettingsBinding()]),
+    GetPage(
+        name: Routes.HOME, page: () => HomePage(),bindings:[HomeBinding()]),
   ];
 }
