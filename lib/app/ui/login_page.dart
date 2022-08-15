@@ -125,11 +125,49 @@ class LoginPage extends GetView<LoginController> {
         ),
       ),
     );*/
-    return Stack(
+    return /*Stack(
       children: [
        buildBackgroundImage(_height*1/2),
       buildScaffold(_height,_width),
       ],
+    );*/
+    Scaffold(
+      backgroundColor: Colors.transparent,
+      body: Stack(
+        children: [
+          buildBackgroundImage(_height/2),
+          CustomScrollView(
+            slivers: [
+              SliverAppBar(
+                pinned: false,
+                floating: false,
+                snap: false,
+                expandedHeight: _height/3,
+                backgroundColor: Colors.transparent,
+                elevation: 0,
+                flexibleSpace: FlexibleSpaceBar(
+                  background:
+                      Image.asset(_logoImg),
+                ),
+              ),
+              SliverToBoxAdapter(
+                child:
+                  ClipRRect(
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(100.0),
+                    ),
+                    child: Container(
+                        width: _width,
+                        height: _height*2/3,
+                        //constraints: BoxConstraints.expand(),
+                        color: Get.isDarkMode? Theme.of(Get.context!).primaryColor:Colors.white,
+                        child: buildLoginForm(_height,_width)),
+                  ),
+              ),
+            ],
+          ),
+        ],
+      ),
     );
   }
   Widget buildBackgroundImage(double height){
@@ -143,7 +181,7 @@ class LoginPage extends GetView<LoginController> {
     );
   }
 
-  Widget buildScaffold(double height,double width){
+  /*Widget buildScaffold(double height,double width){
     return Scaffold(
       backgroundColor: Colors.transparent,
       body:SafeArea(
@@ -170,7 +208,7 @@ class LoginPage extends GetView<LoginController> {
         ),
       ),
     );
-  }
+  }*/
 
   Widget buildLoginForm(double height,double width){
     return Form(
@@ -263,7 +301,7 @@ class LoginPage extends GetView<LoginController> {
                   ),*/
                 ),
               ),
-              SizedBox(height: height * 1 / 32),
+              //SizedBox(height: height * 1 / 32),
             ],
           ),
         ),
