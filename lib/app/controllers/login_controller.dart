@@ -59,7 +59,7 @@ class LoginController extends GetxController with StateMixin<User>{
           if(rememberMe.value){
             UserRepository.instance.setUser();
           }
-          Get.offAllNamed('/profile');
+          Get.offAllNamed('/home');
         } else {
           change(null, status: RxStatus.error());
           Get.back();

@@ -23,16 +23,19 @@ class DrawerWidget extends StatelessWidget {
                 Container(
                     width: 140,
                     height: 140,
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(100),
-                      child: FadeInImage(
-                        fit: BoxFit.cover,
-                        placeholder: AssetImage(defaultImg),
-                        image: NetworkImage(
-                            UserRepository.instance.user!.resimYolu),
-                        imageErrorBuilder: (context, error, stackTrace) {
-                          return Image.asset(defaultImg);
-                        },
+                    child: GestureDetector(
+                      onTap: (){Get.toNamed('/profile');},
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(100),
+                        child: FadeInImage(
+                          fit: BoxFit.cover,
+                          placeholder: AssetImage(defaultImg),
+                          image: NetworkImage(
+                              UserRepository.instance.user!.resimYolu),
+                          imageErrorBuilder: (context, error, stackTrace) {
+                            return Image.asset(defaultImg);
+                          },
+                        ),
                       ),
                     )),
                 Column(
@@ -57,8 +60,9 @@ class DrawerWidget extends StatelessWidget {
           Flexible(
             fit: FlexFit.tight,
             child: ListView(shrinkWrap: true, children: [
-              buildListTile(title:"profile", whereTo: '/profile',icon: Icons.person),
+
               buildListTile(title:"home", whereTo: '/home',icon: Icons.home),
+              buildListTile(title:"profile", whereTo: '/profile',icon: Icons.person),
                  // TODO:if(UserRepository.instance.user!.isim=="denem")...[Text("mrb")],
               ExpansionTile(
                 title: Text('Admin Panel'),

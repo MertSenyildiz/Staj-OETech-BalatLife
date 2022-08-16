@@ -12,7 +12,26 @@ final Map<String, String> enUs = {
   'surname':'Surname',
   'password again':'Password Again',
   'address':'Address',
-
+  'identity number':'Social Security Number',
+  'area':'Area (m^2)',
+  'land_share':'Land Share (m^2)',
+  'plate':'License Plate',
+  'birth_date':'Date of Birth',
+  'marriage_date':'Marriage Date',
+  'entry_date':'Date of Entrance',
+  'checkout_date':'Checkout Date',
+  'emergency_contact_person':'Emergency Contact Person',
+  'emergency_contact_phone':'emergency Contact',
+  'user_status':'User Status: Active/Passive',
+  'permission_status':'Permission Status: Admin/Regular',
+  'ownership':'Choose Ownership',
+  'tenant':'Tenant',
+  'landlord':'Landlord',
+  'other':'Other',
+  'block':'Choose Block',
+  'apartment':'Choose Apartment',
+  'continue':'Continue',
+  'cancel_stepper':'Cancel',
 
 
   'form_value_isEmpty':'Please this field must be filled!',
@@ -45,4 +64,11 @@ final Map<String, String> enUs = {
   'edit_profile_error':'An error occurred in the process!',
 
   'dark_mode':'Dark Mode',
+
+
+  'current_accounts':'Current Accounts',
+  'tenant':'Tenant',
+  'landlord':'Landlord',
+  'accounts':'Accounts',
+  'create':'Create',
 };

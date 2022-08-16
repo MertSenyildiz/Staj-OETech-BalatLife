@@ -1,5 +1,5 @@
 const List<Map<String, String>> adminPanelItems = [
-  {'title': 'Cari Hesaplar', 'whereTo': '/cariHesaplar'},
+  {'title': 'current_accounts', 'whereTo': '/currentAccounts'},
   {'title': 'Cari Firmalar', 'whereTo': '/cariHesaplar'},
   {'title': 'Mülkler', 'whereTo': '/cariHesaplar'},
   {'title': 'Hesaplamalar', 'whereTo': '/cariHesaplar'},

@@ -5,8 +5,10 @@ import 'package:balatlife/app/ui/home_page.dart';
 import 'package:balatlife/app/ui/settings_page.dart';
 import 'package:get/get.dart';
 
+import '../bindings/current_accounts_binding.dart';
 import '../bindings/login_binding.dart';
 import '../bindings/profile_binding.dart';
+import '../ui/current_accounts_page.dart';
 import '../ui/init_page.dart';
 import '../ui/login_page.dart';
 import '../ui/profile_page.dart';
@@ -26,5 +28,7 @@ class AppPages {
         name: Routes.SETTINGS, page: () => SettingsPage(),bindings:[SettingsBinding()]),
     GetPage(
         name: Routes.HOME, page: () => HomePage(),bindings:[HomeBinding()]),
+    GetPage(
+        name: Routes.CURRENT_ACCOUNTS, page: () => CurrentAccountsPage(),bindings:[CurrentAccountsBinding()]),
   ];
 }

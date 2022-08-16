@@ -8,4 +8,5 @@ abstract class Routes{
   static const PROFILE ='/profile';
   static const SETTINGS ='/settings';
   static const HOME ='/home';
+  static const CURRENT_ACCOUNTS='/currentAccounts';
 }

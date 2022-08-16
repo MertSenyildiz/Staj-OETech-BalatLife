@@ -116,11 +116,11 @@ class ProfileController extends GetxController with StateMixin {
 
   _buildTile({required String title,required ImageSource source,required IconData icon}){
     return  ListTile(
-      trailing: Icon(icon,size: 55,),
+      trailing: Icon(icon,),
       title: Text(
         title.tr,
         style: TextStyle(
-            fontWeight: FontWeight.bold, fontSize: 40),
+            fontWeight: FontWeight.bold,),
       ),
       onTap:(){Get.back();pickPhoto(source);},
     );

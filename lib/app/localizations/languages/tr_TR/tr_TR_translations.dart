@@ -12,6 +12,27 @@ final Map<String,String> trTR={
   'surname':'Soyad',
   'password again':'Şifre Tekrar',
   'address':'Adres',
+  'identity number':'T.C. Kimlik No',
+  'area':'Alan (m^2)',
+  'land_share':'Arsa Payı (m^2)',
+  'plate':'Araç Plakası',
+  'birth_date':'Doğum Tarihi',
+  'marriage_date':'Evlilik Tarihi',
+  'entry_date':'Giriş Tarihi',
+  'checkout_date':'Çıkış Tarihi',
+  'emergency_contact_person':'Acil Kişi',
+  'emergency_contact_phone':'Acil Kişi Telefon',
+  'user_status':'Kullanım Durumu: Aktif/Pasif',
+  'permission_status':'Yetki Durumu: Admin/Normal',
+  'ownership':'Mülkiyet Seçiniz',
+  'tenant':'Kiracı',
+  'landlord':'Ev Sahibi',
+  'other':'Diğer',
+  'block':'Blok Seçiniz',
+  'apartment':'Daire Seçiniz',
+  'continue':'Devam Et',
+  'cancel_stepper':'Geri Gel',
+
 
   'form_value_isEmpty':'Bu alan boş geçilemez!',
   'form_value_invalidEmail':'Geçersiz mail adresi!',
@@ -42,4 +63,12 @@ final Map<String,String> trTR={
   'edit_profile_error':'Profil düzenleme esnasında bir hata oluştu!',
 
   'dark_mode':'Karanlık Tema',
+
+
+
+  'current_accounts':'Cari Hesaplar',
+  'tenant':'Kiracı',
+  'landlord':'Ev Sahibi',
+  'accounts':'Hesaplar',
+  'create':'Oluştur',
 };
