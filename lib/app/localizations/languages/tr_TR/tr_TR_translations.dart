@@ -67,8 +67,21 @@ final Map<String,String> trTR={
 
 
   'current_accounts':'Cari Hesaplar',
-  'tenant':'Kiracı',
-  'landlord':'Ev Sahibi',
   'accounts':'Hesaplar',
   'create':'Oluştur',
+  'block_head':'Blok',
+  'apartment_head':'Daire',
+  'ownership_head':'Mülkiyet',
+
+
+  'current_firms':'Cari Firmalar',
+  'firms':'Firmalar',
+
+  'properties':'Mülkler',
+  'counter_no':'Sayaç No',
+  'electricity_sub':'Elektrik Abonelik',
+  'water_sub':'Su Abonelik',
+  'gas_sub':'Doğalgaz Abonelik',
+  'terms_of_service':'Kullanım Şartlarını Onaylıyorum',
+  'calculation_active':'Hesaplama: Aktif/Pasif',
 };

@@ -6,6 +6,8 @@ import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 
+import 'ui_services/orientation_service.dart';
+
 class InitPage extends StatefulWidget{
   @override
   State<InitPage> createState()=>_InitPageState();
@@ -16,9 +18,7 @@ class _InitPageState extends State<InitPage>{
 
   @override
   Widget build(BuildContext context) {
-    SystemChrome.setPreferredOrientations([
-      DeviceOrientation.portraitUp,
-    ]);
+    OrientationService.instance.applyOrientation();
     WidgetsBinding.instance!.addPostFrameCallback((_) {
       (UserRepository.instance.user!=null)?Get.offNamed('/home'):Get.offNamed('/login');
     });

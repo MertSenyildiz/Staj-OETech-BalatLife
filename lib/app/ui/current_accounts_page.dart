@@ -3,11 +3,27 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
 import 'package:intl_phone_number_input/intl_phone_number_input.dart';
+import 'package:sticky_headers/sticky_headers/widget.dart';
 
 
 //TODO:DROPDOWN EKLENECEK
 class CurrentAccountsPage extends GetView<CurrentAccountsController> {
   List<Map<String, dynamic>> data = [
+    {'isim': 'Deneme', 'Mülkiyet': 'Sahibi', 'Blok': 'A', 'Daire': '1'},
+    {'isim': 'Deneme', 'Mülkiyet': 'Sahibi', 'Blok': 'A', 'Daire': '1'},
+    {'isim': 'Deneme', 'Mülkiyet': 'Sahibi', 'Blok': 'A', 'Daire': '1'},
+    {'isim': 'Deneme', 'Mülkiyet': 'Sahibi', 'Blok': 'A', 'Daire': '1'},
+    {'isim': 'Deneme', 'Mülkiyet': 'Sahibi', 'Blok': 'A', 'Daire': '1'},
+    {'isim': 'Deneme', 'Mülkiyet': 'Sahibi', 'Blok': 'A', 'Daire': '1'},
+    {'isim': 'Deneme', 'Mülkiyet': 'Sahibi', 'Blok': 'A', 'Daire': '1'},
+    {'isim': 'Deneme', 'Mülkiyet': 'Sahibi', 'Blok': 'A', 'Daire': '1'},
+    {'isim': 'Deneme', 'Mülkiyet': 'Sahibi', 'Blok': 'A', 'Daire': '1'},
+    {'isim': 'Deneme', 'Mülkiyet': 'Sahibi', 'Blok': 'A', 'Daire': '1'},
+    {'isim': 'Deneme', 'Mülkiyet': 'Sahibi', 'Blok': 'A', 'Daire': '1'},
+    {'isim': 'Deneme', 'Mülkiyet': 'Sahibi', 'Blok': 'A', 'Daire': '1'},
+    {'isim': 'Deneme', 'Mülkiyet': 'Sahibi', 'Blok': 'A', 'Daire': '1'},
+    {'isim': 'Deneme', 'Mülkiyet': 'Sahibi', 'Blok': 'A', 'Daire': '1'},
+    {'isim': 'Deneme', 'Mülkiyet': 'Sahibi', 'Blok': 'A', 'Daire': '1'},
     {'isim': 'Deneme', 'Mülkiyet': 'Sahibi', 'Blok': 'A', 'Daire': '1'},
     {'isim': 'Deneme', 'Mülkiyet': 'Sahibi', 'Blok': 'A', 'Daire': '1'},
     {'isim': 'Deneme', 'Mülkiyet': 'Sahibi', 'Blok': 'A', 'Daire': '1'},
@@ -21,7 +37,7 @@ class CurrentAccountsPage extends GetView<CurrentAccountsController> {
       buildCreateForm(),
     ];
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(elevation: 0,),
       body: GetBuilder<CurrentAccountsController>(
         builder: ((_) {
           return items.elementAt(_.currentIndex);
@@ -52,7 +68,7 @@ class CurrentAccountsPage extends GetView<CurrentAccountsController> {
     final style = TextStyle(
         fontWeight: FontWeight.bold,
         fontSize: 20,
-        overflow: TextOverflow.ellipsis);
+        overflow: TextOverflow.ellipsis,color: Colors.white);
     return GestureDetector(
         onDoubleTap: () {
           controller.onItemTapped(1);
@@ -60,72 +76,79 @@ class CurrentAccountsPage extends GetView<CurrentAccountsController> {
         child: ListView(
           shrinkWrap: false,
           children: [
-            Container(
-              width: double.infinity,
-              child: Row(
-                children: [
-                  Expanded(
-                      flex: 3,
-                      child: Text(
-                        'Isim',
-                        style: style,
-                      )),
-                  Expanded(
-                      flex: 2,
-                      child: Text(
-                        'Mülkiyet',
-                        style: style,
-                      )),
-                  Expanded(
-                      flex: 1,
-                      child: Text(
-                        'Blok',
-                        style: style,
-                      )),
-                  Expanded(
-                      flex: 1,
-                      child: Text(
-                        'Daire',
-                        style: style,
-                      )),
-                  Expanded(
-                      flex: 2,
-                      child: Center(
-                          child: Text(
-                        'Düzenle',
-                        style: style,
-                      )))
-                ],
-              ),
-            ),
-            ...data.map(
-              (e) => Container(
-                width: double.infinity,
+            StickyHeader(
+              header: Container(
                 height: 75,
-                decoration: BoxDecoration(
-                  border: Border(
-                      bottom: BorderSide(
-                          color: Theme.of(Get.context!).primaryColor,
-                          width: 2)),
-                ),
+                width: double.infinity,
+                color: Theme.of(Get.context!).primaryColor,
                 child: Row(
                   children: [
-                    Expanded(flex: 3, child: Text(e['isim'])),
-                    Expanded(flex: 2, child: Text(e['Mülkiyet'])),
-                    Expanded(flex: 1, child: Text(e['Blok'])),
-                    Expanded(flex: 1, child: Text(e['Daire'])),
+                    Expanded(
+                        flex: 3,
+                        child: Text(
+                          'name'.tr,
+                          style: style,
+                        )),
                     Expanded(
                         flex: 2,
-                        child: IconButton(
-                          icon: Icon(Icons.edit),
-                          onPressed: () {
-                            controller.onItemTapped(1);
-                          },
-                        ))
+                        child: Text(
+                          'ownership_head'.tr,
+                          style: style,
+                        )),
+                    Expanded(
+                        flex: 1,
+                        child: Text(
+                          'block_head'.tr,
+                          style: style,
+                        )),
+                    Expanded(
+                        flex: 1,
+                        child: Text(
+                          'apartment_head'.tr,
+                          style: style,
+                        )),
+                    Expanded(
+                        flex: 2,
+                        child: Center(
+                            child: Text(
+                          'edit'.tr,
+                          style: style,
+                        )))
                   ],
                 ),
               ),
+              content: Column(
+                children: [...data.map(
+                      (e) => Container(
+                    width: double.infinity,
+                    height: 75,
+                    decoration: BoxDecoration(
+                      border: Border(
+                          bottom: BorderSide(
+                              color: Theme.of(Get.context!).primaryColor,
+                              width: 2)),
+                    ),
+                    child: Row(
+                      children: [
+                        Expanded(flex: 3, child: Text(e['isim'])),
+                        Expanded(flex: 2, child: Text(e['Mülkiyet'])),
+                        Expanded(flex: 1, child: Text(e['Blok'])),
+                        Expanded(flex: 1, child: Text(e['Daire'])),
+                        Expanded(
+                            flex: 2,
+                            child: IconButton(
+                              icon: Icon(Icons.edit),
+                              onPressed: () {
+                                controller.onItemTapped(1);
+                              },
+                            ))
+                      ],
+                    ),
+                  ),
+                ),],
+              ),
             ),
+
           ],
         ));
   }

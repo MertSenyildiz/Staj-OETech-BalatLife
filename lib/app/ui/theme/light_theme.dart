@@ -20,7 +20,12 @@ final ThemeData lightTheme=ThemeData(
       borderRadius: BorderRadius.circular(10),
     ),
   ),
-
+  appBarTheme: AppBarTheme(
+    color: Colors.transparent,
+    elevation: 0,
+    foregroundColor: Colors.blue,
+  ),
+  toggleableActiveColor: Colors.blue,
 );
 
 final Map<String,Color> light={

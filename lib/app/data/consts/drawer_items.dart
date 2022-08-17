@@ -1,7 +1,7 @@
 const List<Map<String, String>> adminPanelItems = [
   {'title': 'current_accounts', 'whereTo': '/currentAccounts'},
-  {'title': 'Cari Firmalar', 'whereTo': '/cariHesaplar'},
-  {'title': 'Mülkler', 'whereTo': '/cariHesaplar'},
+  {'title': 'current_firms', 'whereTo': '/currentFirms'},
+  {'title': 'properties', 'whereTo': '/properties'},
   {'title': 'Hesaplamalar', 'whereTo': '/cariHesaplar'},
   {'title': 'Ödemeler', 'whereTo': '/cariHesaplar'},
   {'title': 'Kısa Mesaj Sistemi', 'whereTo': '/cariHesaplar'},

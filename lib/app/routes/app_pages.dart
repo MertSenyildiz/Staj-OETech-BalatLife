@@ -1,13 +1,17 @@
+import 'package:balatlife/app/bindings/current_firms_binding.dart';
 import 'package:balatlife/app/bindings/home_binding.dart';
 import 'package:balatlife/app/bindings/regiter_bindings.dart';
 import 'package:balatlife/app/bindings/settings_binding.dart';
+import 'package:balatlife/app/ui/current_firms_page.dart';
 import 'package:balatlife/app/ui/home_page.dart';
+import 'package:balatlife/app/ui/property_page.dart';
 import 'package:balatlife/app/ui/settings_page.dart';
 import 'package:get/get.dart';
 
 import '../bindings/current_accounts_binding.dart';
 import '../bindings/login_binding.dart';
 import '../bindings/profile_binding.dart';
+import '../bindings/property_binding.dart';
 import '../ui/current_accounts_page.dart';
 import '../ui/init_page.dart';
 import '../ui/login_page.dart';
@@ -30,5 +34,9 @@ class AppPages {
         name: Routes.HOME, page: () => HomePage(),bindings:[HomeBinding()]),
     GetPage(
         name: Routes.CURRENT_ACCOUNTS, page: () => CurrentAccountsPage(),bindings:[CurrentAccountsBinding()]),
+    GetPage(
+        name: Routes.CURRENT_FIRMS, page: () => CurrentFirmsPage(),bindings:[CurrentFirmsBinding()]),
+    GetPage(
+        name: Routes.PROPERTIES, page: () => PropertyPage(),bindings:[PropertyBinding()]),
   ];
 }

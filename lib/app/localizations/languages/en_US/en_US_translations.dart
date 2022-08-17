@@ -67,8 +67,21 @@ final Map<String, String> enUs = {
 
 
   'current_accounts':'Current Accounts',
-  'tenant':'Tenant',
-  'landlord':'Landlord',
   'accounts':'Accounts',
   'create':'Create',
+  'block_head':'Block',
+  'apartment_head':'Apartment',
+  'ownership_head':'Ownership',
+
+
+  'current_firms':'Current Companies',
+  'firms':'Companies',
+
+  'properties':'Properties',
+  'counter_no':'Counter No',
+  'electricity_sub':'Electricity Subscription No',
+  'water_sub':'Water Subscription No',
+  'gas_sub':'Gas Subscription No',
+  'terms_of_service':' I Agree to the Terms of Service',
+  'calculation_active':'Calculation: Active/Passive',
 };

@@ -22,6 +22,12 @@ final ThemeData darkTheme=ThemeData(
       ),
       focusColor: Colors.grey
     ),
+  appBarTheme: AppBarTheme(
+    color: Colors.transparent,
+    elevation: 0,
+    foregroundColor: Colors.blue,
+  ),
+  toggleableActiveColor: Colors.blue,
 );
 
 final Map<String,Color> light={

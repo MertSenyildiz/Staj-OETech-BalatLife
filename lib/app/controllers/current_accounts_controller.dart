@@ -1,9 +1,26 @@
+import 'package:balatlife/app/ui/ui_services/orientation_service.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:intl_phone_number_input/intl_phone_number_input.dart';
 
 class CurrentAccountsController extends GetxController{
+
+  @override
+  void onInit() {
+    OrientationService.instance.addOrientation(DeviceOrientation.landscapeLeft);
+    OrientationService.instance.addOrientation(DeviceOrientation.landscapeRight);
+    OrientationService.instance.applyOrientation();
+    super.onInit();
+  }
+  @override
+  void onClose() {
+    OrientationService.instance.refactor();
+    OrientationService.instance.applyOrientation();
+    super.onClose();
+  }
+
   List formKeys=[GlobalKey<FormState>(),GlobalKey<FormState>(),GlobalKey<FormState>(),GlobalKey<FormState>()];
   //First Stepper
   final nameController=TextEditingController();
