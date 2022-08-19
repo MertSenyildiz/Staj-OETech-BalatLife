@@ -10,11 +10,13 @@ import 'package:get/get.dart';
 
 import '../bindings/current_accounts_binding.dart';
 import '../bindings/login_binding.dart';
+import '../bindings/payments_binding.dart';
 import '../bindings/profile_binding.dart';
 import '../bindings/property_binding.dart';
 import '../ui/current_accounts_page.dart';
 import '../ui/init_page.dart';
 import '../ui/login_page.dart';
+import '../ui/payments_page.dart';
 import '../ui/profile_page.dart';
 import '../ui/register_page.dart';
 part './app_routes.dart';
@@ -38,5 +40,7 @@ class AppPages {
         name: Routes.CURRENT_FIRMS, page: () => CurrentFirmsPage(),bindings:[CurrentFirmsBinding()]),
     GetPage(
         name: Routes.PROPERTIES, page: () => PropertyPage(),bindings:[PropertyBinding()]),
+    GetPage(
+        name: Routes.PAYMENTS, page: () => PaymentsPage(),bindings:[PaymentsBinding()]),
   ];
 }

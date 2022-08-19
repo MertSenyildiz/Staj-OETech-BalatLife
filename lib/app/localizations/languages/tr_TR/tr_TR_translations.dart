@@ -84,4 +84,13 @@ final Map<String,String> trTR={
   'gas_sub':'Doğalgaz Abonelik',
   'terms_of_service':'Kullanım Şartlarını Onaylıyorum',
   'calculation_active':'Hesaplama: Aktif/Pasif',
+
+  'payments':'Ödemeler',
+  'selected_file':'Seçilen Dosya',
+  'select_file':'Dosya Seç',
+  'upload_file':'Yükle',
+  'payment_upload_page':'ÖDEME DOSYASI YÜKLEME SAYFASI',
+  'payment_document':'Ödeme Dosyası: Excel Formatında (xls,xlsx) olmalıdır',
+  'payment_document_format':'Başlıkların birinci satırda olması gerekmektedir',
+  'payment_document_format_numeric':'Virgül:Sayısal alanların virgül ile ayrılmış olması gerekmektedir',
 };

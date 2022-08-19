@@ -84,4 +84,13 @@ final Map<String, String> enUs = {
   'gas_sub':'Gas Subscription No',
   'terms_of_service':' I Agree to the Terms of Service',
   'calculation_active':'Calculation: Active/Passive',
+
+  'payments':'Payments',
+  'selected_file':'Selected File',
+  'select_file':'Select File',
+  'upload_file':'Upload',
+  'payment_upload_page':'PAYMENT DOCUMENT UPLOAD PAGE',
+  'payment_document':'Payment Document: Must be at Excel Format (xls,xlsx)',
+  'payment_document_format':'Every Header should be in the first row',
+  'payment_document_format_numeric':'Comma:Numeric fields ought to be separated with comma',
 };
