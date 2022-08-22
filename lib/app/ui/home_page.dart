@@ -20,11 +20,10 @@ class HomePage extends GetView<HomeController>{
               //INFO TODO:Kurallar
               Column(
                 children: [
-                  Text("Kurallar"),
                   GridView.count(
                     physics: NeverScrollableScrollPhysics(),
                     shrinkWrap: true,
-                    crossAxisCount: 2,
+                    crossAxisCount: 3,
                     scrollDirection: Axis.vertical,
                     children: [
                       for(int i=0;i<dashboardRuleItems.length;i++)
@@ -36,9 +35,14 @@ class HomePage extends GetView<HomeController>{
                               color:dashboardRuleItems[i]['color']!,
                               borderRadius: BorderRadius.circular(20),
                             ),
-                            height: 150,
+                            //height: 250,
 
-                            child: Text(dashboardRuleItems[i]['title']!.toUpperCase(),style: TextStyle(color: Colors.white,fontWeight: FontWeight.w800),),
+                            child: Column(
+                              children: [
+                                Expanded(flex:1,child: Text(dashboardRuleItems[i]['title']!.toUpperCase(),style: TextStyle(color: Colors.white,fontWeight: FontWeight.w800),)),
+                                Expanded(flex:1,child: FittedBox(fit:BoxFit.cover,child: Icon(Icons.insert_drive_file,))),
+                              ],
+                            ),
                           ),
                         )
                     ],
@@ -47,7 +51,7 @@ class HomePage extends GetView<HomeController>{
               ),
 
               //INFO TODO:Maaliyetler
-              Column(
+              /*Column(
                 children: [
                   Text("Maaliyetler"),
                   GridView.count(
@@ -73,59 +77,58 @@ class HomePage extends GetView<HomeController>{
                     ],
                   ),
                 ],
+              ),*/
+              SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  children: [
+                    for(int i=0;i<dashboardCostItems.length;i++)
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Container(
+                          padding: EdgeInsets.all(15),
+                          decoration: BoxDecoration(
+                            color:dashboardCostItems[i]['color']!,
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                          height: 125,
+                          width: 250,
+
+                          child: Text(dashboardCostItems[i]['title']!.toUpperCase(),style: TextStyle(color: Colors.white,fontWeight: FontWeight.w800),),
+                        ),
+                      )
+                  ],
+                ),
               ),
-
-
-              //INFO TODO:Grafikler
+              //INFO TODO:Mesajlar
               Column(
                 children: [
-                  Text("Grafikler"),
+                  Text("Mesajlar"),
                   GridView.count(
                     physics: NeverScrollableScrollPhysics(),
                     shrinkWrap: true,
                     crossAxisCount: 1,
                     scrollDirection: Axis.vertical,
                     children: [
-                      for(int i=0;i<dashboardGraphsItems.length;i++)
+                      for(int i=0;i<dashboardMesssageItems.length;i++)
                         Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: Container(
                             padding: EdgeInsets.all(15),
                             decoration: BoxDecoration(
-                              color:dashboardGraphsItems[i]['color']!,
+                              color:dashboardMesssageItems[i]['color']!,
                               borderRadius: BorderRadius.circular(20),
                             ),
                             height: 100,
 
-                            child: Text(dashboardGraphsItems[i]['title']!.toUpperCase(),style: TextStyle(color: Colors.white,fontWeight: FontWeight.w800),),
+                            child: Text(dashboardMesssageItems[i]['title']!.toUpperCase(),style: TextStyle(color: Colors.white,fontWeight: FontWeight.w800),),
                           ),
                         )
                     ],
                   ),
                 ],
               ),
-              SingleChildScrollView(
-                scrollDirection: Axis.horizontal,
-                child: Row(
-                  children: [
-                    for(int i=0;i<dashboardGraphsItems.length;i++)
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Container(
-                          padding: EdgeInsets.all(15),
-                          decoration: BoxDecoration(
-                            color:dashboardGraphsItems[i]['color']!,
-                            borderRadius: BorderRadius.circular(20),
-                          ),
-                          height: 125,
-                          width: 250,
 
-                          child: Center(child: Text(dashboardGraphsItems[i]['title']!.toUpperCase(),style: TextStyle(color: Colors.white,fontWeight: FontWeight.w800),)),
-                        ),
-                      )
-                  ],
-                ),
-              ),
             ],
           ),
         ),

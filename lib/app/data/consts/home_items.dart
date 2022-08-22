@@ -4,15 +4,6 @@ const List<Map<String,dynamic>> dashboardRuleItems=[
   {'title':'Yönetim Planı','color':Colors.green},
   {'title':'Blatlife Yaşam Kuralları','color':Colors.black},
   {'title':'Katmülkiyet Kanunu','color':Colors.yellow},
-  {'title':'Enerji Verimliliği Kanunu','color':Colors.grey},
-  {'title':'Yönetim Planı','color':Colors.green},
-  {'title':'Blatlife Yaşam Kuralları','color':Colors.black},
-  {'title':'Katmülkiyet Kanunu','color':Colors.yellow},
-  {'title':'Enerji Verimliliği Kanunu','color':Colors.grey},
-  {'title':'Yönetim Planı','color':Colors.green},
-  {'title':'Blatlife Yaşam Kuralları','color':Colors.black},
-  {'title':'Katmülkiyet Kanunu','color':Colors.yellow},
-  {'title':'Enerji Verimliliği Kanunu','color':Colors.grey},
 ];
 
 const List<Map<String,dynamic>> dashboardCostItems=[
@@ -27,4 +18,10 @@ const List<Map<String,dynamic>> dashboardGraphsItems=[
   {'title':'Daire Doğalgaz Kullanım Grafiği','color':Colors.black},
   {'title':'Blok Doğalgaz Kullanım Grafiği','color':Colors.yellow},
   {'title':'Isınma ve Sıcak Su Paylaşım Hesabı','color':Colors.grey},
+];
+
+const List<Map<String,dynamic>> dashboardMesssageItems=[
+  {'title':'Yönetim Bildirimleri','color':Colors.green},
+  {'title':'Mesajlar','color':Colors.black},
+  {'title':'Haberler','color':Colors.yellow},
 ];

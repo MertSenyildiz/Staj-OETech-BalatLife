@@ -76,6 +76,7 @@ final Map<String,String> trTR={
 
   'current_firms':'Cari Firmalar',
   'firms':'Firmalar',
+  'firm_choose':'Firma Seçiniz',
 
   'properties':'Mülkler',
   'counter_no':'Sayaç No',
@@ -93,4 +94,7 @@ final Map<String,String> trTR={
   'payment_document':'Ödeme Dosyası: Excel Formatında (xls,xlsx) olmalıdır',
   'payment_document_format':'Başlıkların birinci satırda olması gerekmektedir',
   'payment_document_format_numeric':'Virgül:Sayısal alanların virgül ile ayrılmış olması gerekmektedir',
+
+
+  'purchases':'Satın Alımlar',
 };

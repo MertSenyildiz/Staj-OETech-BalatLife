@@ -13,6 +13,12 @@ import '../data/models/user.dart';
 import '../ui/widgets/snackbar_generator.dart';
 
 class ProfileController extends GetxController with StateMixin {
+  @override
+  void onInit() {
+    // TODO: implement onInit
+    change(null, status: RxStatus.empty());
+    super.onInit();
+  }
   /* final imageFile =Rx<File?>(File(''));
   final ImagePicker _picker = ImagePicker();
   pickPhoto() async{
@@ -31,6 +37,7 @@ class ProfileController extends GetxController with StateMixin {
   final nameController = TextEditingController(text:UserRepository.instance.user!.isim);
   final surnameController = TextEditingController(text:UserRepository.instance.user!.soyIsim);
   PhoneNumber? number = PhoneNumber();
+  bool isLoading=false;
 
   File? imageFile;
   pickPhoto(ImageSource source) async {
@@ -64,6 +71,7 @@ class ProfileController extends GetxController with StateMixin {
 
 
   editProfile()async{
+    change(null, status: RxStatus.loading());
     String isim=nameController.text !=''?nameController.text:UserRepository.instance.user!.isim;
     String soyIsim=surnameController.text !=''?surnameController.text:UserRepository.instance.user!.soyIsim;
     String adres=addressController.text!=''?addressController.text:UserRepository.instance.user!.adres;
@@ -79,6 +87,7 @@ class ProfileController extends GetxController with StateMixin {
       telefon: telefon
     );
       await userApi.editProfile(imageFile,editUser).then((status){
+
         if(status!=null){
           SnackbarGenerator.authSnackbar(title: "edit", message: "edit_profile_success", auth: true);
           UserRepository.instance.user=User.fromJson(status);
@@ -86,8 +95,10 @@ class ProfileController extends GetxController with StateMixin {
           imageFile=null;
           update();
           _updateControllers();
+          change(null, status: RxStatus.success());
         }else{
           SnackbarGenerator.authSnackbar(title: "edit", message: "edit_profile_error", auth: false);
+          change(null, status: RxStatus.error());
         }
       });
   }

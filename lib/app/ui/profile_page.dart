@@ -122,12 +122,15 @@ class ProfilePage extends GetView<ProfileController> {
                 style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold))),
         buildInputs(context),
         SizedBox(height: 35,),
-        Row(
-          children: [
-            Spacer(flex:1),
-            Expanded(flex:5,child: ElevatedButton(onPressed:controller.editProfile, child: Text("edit".tr),style:ElevatedButton.styleFrom(fixedSize: Size.fromHeight(50)))),
-            Spacer(flex:1),
-          ],
+       GetBuilder<ProfileController>(builder:((_){
+          return Row(
+            children: [
+              Spacer(flex:1),
+              Expanded(flex:5,child: ElevatedButton(onPressed:_.status.isLoading?null:_.editProfile, child: Text("edit".tr),style:ElevatedButton.styleFrom(fixedSize: Size.fromHeight(50)))),
+              Spacer(flex:1),
+            ],
+          );
+        })
         ),
         SizedBox(height: 15,),
       ],

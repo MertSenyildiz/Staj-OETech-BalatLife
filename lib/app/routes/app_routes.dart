@@ -12,4 +12,5 @@ abstract class Routes{
   static const CURRENT_FIRMS='/currentFirms';
   static const PROPERTIES='/properties';
   static const PAYMENTS='/payments';
+  static const PURCHASES='/purchases';
 }

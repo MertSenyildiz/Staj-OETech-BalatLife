@@ -76,6 +76,7 @@ final Map<String, String> enUs = {
 
   'current_firms':'Current Companies',
   'firms':'Companies',
+  'firm_choose':'Select a Company',
 
   'properties':'Properties',
   'counter_no':'Counter No',
@@ -93,4 +94,7 @@ final Map<String, String> enUs = {
   'payment_document':'Payment Document: Must be at Excel Format (xls,xlsx)',
   'payment_document_format':'Every Header should be in the first row',
   'payment_document_format_numeric':'Comma:Numeric fields ought to be separated with comma',
+
+  'purchases':'Purchases',
+
 };

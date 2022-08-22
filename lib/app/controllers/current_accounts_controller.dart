@@ -1,3 +1,4 @@
+import 'package:balatlife/app/mixins/pick_date_mixin.dart';
 import 'package:balatlife/app/ui/ui_services/orientation_service.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -5,7 +6,7 @@ import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:intl_phone_number_input/intl_phone_number_input.dart';
 
-class CurrentAccountsController extends GetxController{
+class CurrentAccountsController extends GetxController with PickDateMixin{
 
   @override
   void onInit() {
@@ -95,18 +96,7 @@ class CurrentAccountsController extends GetxController{
   }
 
   pickDate(DateTime? date,TextEditingController cont,DateTime inital,DateTime first,DateTime last)async{
-    final pick = await showDatePicker(
-      context: Get.context!,
-      initialDate:inital,
-      firstDate:first,
-      lastDate:last,
-    );
-    if(pick!=null){
-      cont.text=pick.day.toString()+'/'+pick.month.toString()+'/'+pick.year.toString();
-    }
-    else{
-      return;
-    }
+    await datePicker(date, cont, inital, first, last);
   }
   changeUserStatus(bool? x){
     userStatus=!userStatus;
