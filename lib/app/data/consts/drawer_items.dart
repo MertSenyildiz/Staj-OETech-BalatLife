@@ -7,8 +7,8 @@ const List<Map<String, String>> adminPanelItems = [
   {'title': 'Kısa Mesaj Sistemi', 'whereTo': '/cariHesaplar'},
   {'title': 'Duyuru', 'whereTo': '/cariHesaplar'},
   {'title': 'purchases', 'whereTo': '/purchases'},
-  {'title': 'Demirbaşlar', 'whereTo': '/cariHesaplar'},
-  {'title': 'Aidatlar', 'whereTo': '/cariHesaplar'},
+  {'title': 'fixtures', 'whereTo': '/fixtures'},
+  {'title': 'dues', 'whereTo': '/dues'},
   {'title': 'Mizan', 'whereTo': '/cariHesaplar'},
   {'title': 'Kullanıcılar', 'whereTo': '/cariHesaplar'},
 ];

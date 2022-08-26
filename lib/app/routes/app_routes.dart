@@ -13,4 +13,7 @@ abstract class Routes{
   static const PROPERTIES='/properties';
   static const PAYMENTS='/payments';
   static const PURCHASES='/purchases';
+  static const FIXTURES='/fixtures';
+  static const DUES='/dues';
+  static const PDF='/pdf';
 }

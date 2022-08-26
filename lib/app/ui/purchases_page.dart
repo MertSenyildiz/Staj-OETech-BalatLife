@@ -168,7 +168,7 @@ class PurchasesPage extends GetView<PurchasesController> {
           controller: controller1,
           physics: NeverScrollableScrollPhysics(),
           child: Container(
-            width: Get.context!.width < 720 ? 720 : Get.context!.width,
+            width: Get.context!.height < 720 ? 720 : Get.context!.height,
             color: Theme.of(Get.context!).primaryColor,
             height: 75,
             child: Row(

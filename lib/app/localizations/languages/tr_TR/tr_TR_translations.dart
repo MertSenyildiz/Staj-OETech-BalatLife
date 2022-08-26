@@ -97,4 +97,10 @@ final Map<String,String> trTR={
 
 
   'purchases':'Satın Alımlar',
+
+
+  'fixtures':'Demirbaşlar',
+
+
+  'dues':'Aidatlar',
 };

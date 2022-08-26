@@ -15,6 +15,7 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'app/ui/ui_services/orientation_service.dart';
 import 'app/ui/theme/dark_theme.dart';
 import 'app/ui/theme/light_theme.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 
 void main() async {
     WidgetsFlutterBinding.ensureInitialized();
@@ -31,9 +32,14 @@ void main() async {
       getPages: AppPages.pages,
       locale: LangRepository.instance.getLang(),
       translationsKeys: AppTranslation.translations,
-      fallbackLocale:Locale('en', 'US'),
+      fallbackLocale:Locale('tr', 'TR'),
       themeMode: ThemeMode.system,
       darkTheme: darkTheme,
+      localizationsDelegates:[ // Add this line
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
     ));
 }
 

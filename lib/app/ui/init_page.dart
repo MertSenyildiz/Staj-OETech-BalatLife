@@ -19,7 +19,7 @@ class _InitPageState extends State<InitPage>{
   @override
   Widget build(BuildContext context) {
     OrientationService.instance.applyOrientation();
-    WidgetsBinding.instance!.addPostFrameCallback((_) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
       (UserRepository.instance.user!=null)?Get.offNamed('/home'):Get.offNamed('/login');
     });
     return Center(child: CircularProgressIndicator());

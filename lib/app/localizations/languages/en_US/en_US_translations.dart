@@ -97,4 +97,8 @@ final Map<String, String> enUs = {
 
   'purchases':'Purchases',
 
+
+  'fixtures':'Fixtures',
+
+  'dues':'Dues',
 };

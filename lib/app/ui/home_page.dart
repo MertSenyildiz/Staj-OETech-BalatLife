@@ -27,21 +27,24 @@ class HomePage extends GetView<HomeController>{
                     scrollDirection: Axis.vertical,
                     children: [
                       for(int i=0;i<dashboardRuleItems.length;i++)
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Container(
-                            padding: EdgeInsets.all(15),
-                            decoration: BoxDecoration(
-                              color:dashboardRuleItems[i]['color']!,
-                              borderRadius: BorderRadius.circular(20),
-                            ),
-                            //height: 250,
+                        GestureDetector(
+                          onTap:(){Get.toNamed('/pdf',parameters:{'url':dashboardRuleItems[i]['url'],'type':dashboardRuleItems[i]['type']});},
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Container(
+                              padding: EdgeInsets.all(15),
+                              decoration: BoxDecoration(
+                                color:dashboardRuleItems[i]['color']!,
+                                borderRadius: BorderRadius.circular(20),
+                              ),
+                              //height: 250,
 
-                            child: Column(
-                              children: [
-                                Expanded(flex:1,child: Text(dashboardRuleItems[i]['title']!.toUpperCase(),style: TextStyle(color: Colors.white,fontWeight: FontWeight.w800),)),
-                                Expanded(flex:1,child: FittedBox(fit:BoxFit.cover,child: Icon(Icons.insert_drive_file,))),
-                              ],
+                              child: Column(
+                                children: [
+                                  Expanded(flex:1,child: Text(dashboardRuleItems[i]['title']!.toUpperCase(),style: TextStyle(color: Colors.white,fontWeight: FontWeight.w800),)),
+                                  Expanded(flex:1,child: FittedBox(fit:BoxFit.cover,child: Icon(Icons.insert_drive_file,color: Colors.white,))),
+                                ],
+                              ),
                             ),
                           ),
                         )

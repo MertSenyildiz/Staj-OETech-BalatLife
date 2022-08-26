@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
 const List<Map<String,dynamic>> dashboardRuleItems=[
-  {'title':'Yönetim Planı','color':Colors.green},
-  {'title':'Blatlife Yaşam Kuralları','color':Colors.black},
-  {'title':'Katmülkiyet Kanunu','color':Colors.yellow},
+  {'title':'Yönetim Planı','color':Colors.green,'url':'assets/pdfs/yonetim_plani.pdf','type':'asset'},
+  {'title':'Blatlife Yaşam Kuralları','color':Colors.black,'url':'','type':'asset'},
+  {'title':'Katmülkiyet Kanunu','color':Colors.yellow,'url':'https://www.mevzuat.gov.tr/MevzuatMetin/1.5.634.pdf','type':'network'},
 ];
 
 const List<Map<String,dynamic>> dashboardCostItems=[
