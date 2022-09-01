@@ -1,5 +1,6 @@
 import 'package:balatlife/app/controllers/home_controller.dart';
 import 'package:balatlife/app/ui/widgets/drawer_widget.dart';
+import 'package:balatlife/app/ui/widgets/notifications_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
@@ -15,6 +16,7 @@ class HomePage extends GetView<HomeController>{
       drawer: DrawerWidget(),
       body: SafeArea(
         child: SingleChildScrollView(
+          physics: BouncingScrollPhysics(),
           child: Column(
             children: [
               //INFO TODO:Kurallar
@@ -109,8 +111,8 @@ class HomePage extends GetView<HomeController>{
                   Text("Mesajlar"),
                   GridView.count(
                     physics: NeverScrollableScrollPhysics(),
-                    shrinkWrap: true,
                     crossAxisCount: 1,
+                    shrinkWrap: true,
                     scrollDirection: Axis.vertical,
                     children: [
                       for(int i=0;i<dashboardMesssageItems.length;i++)
@@ -122,16 +124,16 @@ class HomePage extends GetView<HomeController>{
                               color:dashboardMesssageItems[i]['color']!,
                               borderRadius: BorderRadius.circular(20),
                             ),
-                            height: 100,
-
-                            child: Text(dashboardMesssageItems[i]['title']!.toUpperCase(),style: TextStyle(color: Colors.white,fontWeight: FontWeight.w800),),
+                            child: dashboardMesssageItems[i]['title']=="Yönetim Bildirimleri"?
+                                //Text(dashboardMesssageItems[i]['title']!.toUpperCase(),style: TextStyle(color: Colors.white,fontWeight: FontWeight.w800),),
+                            NotificationsWidget(color:dashboardMesssageItems[i]['color']! ,title: dashboardMesssageItems[i]['title'],)
+                            :Text(dashboardMesssageItems[i]['title']!.toUpperCase(),style: TextStyle(color: Colors.white,fontWeight: FontWeight.w800),),
                           ),
                         )
                     ],
                   ),
                 ],
               ),
-
             ],
           ),
         ),

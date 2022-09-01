@@ -15,5 +15,7 @@ abstract class Routes{
   static const PURCHASES='/purchases';
   static const FIXTURES='/fixtures';
   static const DUES='/dues';
+  static const ANNOUNCEMENT='/announcement';
+  static const NOTIFICATIONS='/notifications';
   static const PDF='/pdf';
 }

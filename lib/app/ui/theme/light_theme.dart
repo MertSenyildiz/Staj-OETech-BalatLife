@@ -5,7 +5,7 @@ final ThemeData lightTheme=ThemeData(
   elevatedButtonTheme: ElevatedButtonThemeData(
     style: ElevatedButton.styleFrom(fixedSize:Size.fromHeight(50),primary: Colors.blue),
   ),
-  dialogBackgroundColor: Color.fromARGB(100,10, 167, 240),
+  dialogBackgroundColor: Color.fromARGB(185,10, 167, 240),
   dialogTheme: DialogTheme(
     titleTextStyle: TextStyle(
       color:Colors.black,

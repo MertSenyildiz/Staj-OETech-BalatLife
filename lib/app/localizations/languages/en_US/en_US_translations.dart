@@ -101,4 +101,8 @@ final Map<String, String> enUs = {
   'fixtures':'Fixtures',
 
   'dues':'Dues',
+
+  'announcement':'Announcement',
+
+  'notifications':'Notifications',
 };

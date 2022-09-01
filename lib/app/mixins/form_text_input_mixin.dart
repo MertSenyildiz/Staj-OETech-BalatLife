@@ -10,7 +10,8 @@ mixin FormTextInputMixin{
         bool allowMultiLine = false,
         TextInputType? keyboard,
         bool obscure = false,
-        bool readOnly=false,String? label}) {
+        bool readOnly=false,String? label,
+        int line=2}) {
     return TextFormField(
       controller: cont,
       validator: val,
@@ -22,7 +23,7 @@ mixin FormTextInputMixin{
       decoration: InputDecoration(
           labelText:label?.tr
       ),
-      maxLines: allowMultiLine ? 2 : 1,
+      maxLines: allowMultiLine ? line : 1,
     );
   }
 }

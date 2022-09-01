@@ -103,4 +103,8 @@ final Map<String,String> trTR={
 
 
   'dues':'Aidatlar',
+
+  'announcement':'Duyuru',
+
+  'notifications':'Bildirimler',
 };

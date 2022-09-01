@@ -5,7 +5,7 @@ const List<Map<String, String>> adminPanelItems = [
   {'title': 'Hesaplamalar', 'whereTo': '/cariHesaplar'},
   {'title': 'payments', 'whereTo': '/payments'},
   {'title': 'Kısa Mesaj Sistemi', 'whereTo': '/cariHesaplar'},
-  {'title': 'Duyuru', 'whereTo': '/cariHesaplar'},
+  {'title': 'announcement', 'whereTo': '/announcement'},
   {'title': 'purchases', 'whereTo': '/purchases'},
   {'title': 'fixtures', 'whereTo': '/fixtures'},
   {'title': 'dues', 'whereTo': '/dues'},
@@ -21,7 +21,7 @@ const List<Map<String, String>> invoiceItems=[
 
 const List<Map<String, String>> announcementItems=[
   {'title': 'Haberler', 'whereTo': '/cariHesaplar'},
-  {'title': 'Bildirimler', 'whereTo': '/cariHesaplar'},
+  {'title': 'notifications', 'whereTo': '/notifications'},
   {'title': 'Oylamalar', 'whereTo': '/cariHesaplar'},
   {'title': 'Satın Alımlar', 'whereTo': '/cariHesaplar'},
 ];

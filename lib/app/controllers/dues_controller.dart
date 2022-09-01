@@ -76,9 +76,10 @@ class DuesController extends GetxController with PickDateMixin {
 
   @override
   void onInit() {
-    OrientationService.instance.addOrientation(DeviceOrientation.landscapeLeft);
+   OrientationService.instance.addOrientation(DeviceOrientation.landscapeLeft);
     OrientationService.instance.addOrientation(DeviceOrientation.landscapeRight);
     OrientationService.instance.applyOrientation();
+
     super.onInit();
   }
   @override

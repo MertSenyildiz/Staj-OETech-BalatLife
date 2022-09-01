@@ -5,7 +5,7 @@ final ThemeData darkTheme=ThemeData(
   elevatedButtonTheme: ElevatedButtonThemeData(
     style: ElevatedButton.styleFrom(fixedSize:Size.fromHeight(50),primary: Colors.black),
   ),
- dialogBackgroundColor: Color.fromARGB(100,10, 86, 240),
+ dialogBackgroundColor: Color.fromARGB(185,10, 86, 240),
   dialogTheme: DialogTheme(
     elevation: 5,
     titleTextStyle: TextStyle(
