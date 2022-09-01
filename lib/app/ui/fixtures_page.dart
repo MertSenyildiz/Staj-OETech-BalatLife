@@ -12,12 +12,7 @@ class FixturesPage extends GetView<FixturesController> with FormTextInputMixin,F
     return Scaffold(
       appBar: AppBar(),
       body: GetBuilder<FixturesController>(builder: ((_) {
-        return ListView(
-          shrinkWrap: false,
-          children: [
-            items[_.currentIndex],
-          ],
-        );
+        return items[_.currentIndex];
       })),
       bottomNavigationBar: GetBuilder<FixturesController>(
         builder: ((_) {
@@ -44,14 +39,12 @@ class FixturesPage extends GetView<FixturesController> with FormTextInputMixin,F
       overflow: TextOverflow.ellipsis);
 
   buildFixtures(){
-    return NotificationListener<ScrollNotification>(
-      child: StickyHeader(
-        header: SingleChildScrollView(
-          scrollDirection: Axis.horizontal,
-          controller: firstScroll,
-          physics: NeverScrollableScrollPhysics(),
-          child: Container(
-            width: Get.context!.height < 720 ? 720 : Get.context!.height,
+    return SingleChildScrollView(
+      scrollDirection: Axis.horizontal,
+      child: Container(
+        width: Get.context!.height < 720 ? 720 : Get.context!.height,
+        child: StickyHeader(
+          header: Container(
             color: Theme.of(Get.context!).primaryColor,
             height: 75,
             child: Row(
@@ -96,111 +89,113 @@ class FixturesPage extends GetView<FixturesController> with FormTextInputMixin,F
               ],
             ),
           ),
-        ),
-        content: SingleChildScrollView(
-          scrollDirection: Axis.horizontal,
-          controller: secondScroll,
-          child: Container(
-            width: Get.context!.width < 720 ? 720 : Get.context!.width,
-            child: Column(
-              children: [
-                ...data.map((e) => Container(
-                  height: 75,
-                  decoration: BoxDecoration(
-                    border: Border(
-                        bottom: BorderSide(
-                            color: Theme.of(Get.context!).primaryColor,
-                            width: 2)),
-                  ),
-                  child: Row(
-                    children: [
-                      Expanded(
-                        flex: 3,
-                        child: Text(e['g_grubu']),
+          content: ListView(
+            shrinkWrap: false,
+            children: [
+              Container(
+                width: Get.context!.width < 720 ? 720 : Get.context!.width,
+                child: Column(
+                  children: [
+                    ...data.map((e) => Container(
+                      height: 75,
+                      decoration: BoxDecoration(
+                        border: Border(
+                            bottom: BorderSide(
+                                color: Theme.of(Get.context!).primaryColor,
+                                width: 2)),
                       ),
-                      Spacer(flex: 1),
-                      Expanded(
-                        flex: 3,
-                        child: Text(e['g_adi']),
+                      child: Row(
+                        children: [
+                          Expanded(
+                            flex: 3,
+                            child: Text(e['g_grubu']),
+                          ),
+                          Spacer(flex: 1),
+                          Expanded(
+                            flex: 3,
+                            child: Text(e['g_adi']),
+                          ),
+                          Spacer(flex: 1),
+                          Expanded(
+                            flex: 3,
+                            child: Text(e['aciklama']),
+                          ),
+                          Spacer(flex: 1),
+                          Expanded(
+                            flex: 3,
+                            child: Container(
+                                color: Colors.green,
+                                child: Center(child: Text(e['tutar']))),
+                          ),
+                          Spacer(flex: 1),
+                          Expanded(
+                            flex: 3,
+                            child: Text(e['tarih']),
+                          ),
+                          Spacer(flex: 1),
+                          Expanded(
+                            flex: 3,
+                            child: Text(e['fatura_no']),
+                          ),
+                          Spacer(flex: 1),
+                          Expanded(
+                              flex: 3,
+                              child: IconButton(
+                                icon: Icon(Icons.edit),
+                                onPressed: () {
+                                  //controller.onItemTapped(1);
+                                },
+                              )),
+                        ],
                       ),
-                      Spacer(flex: 1),
-                      Expanded(
-                        flex: 3,
-                        child: Text(e['aciklama']),
-                      ),
-                      Spacer(flex: 1),
-                      Expanded(
-                        flex: 3,
-                        child: Container(
-                            color: Colors.green,
-                            child: Center(child: Text(e['tutar']))),
-                      ),
-                      Spacer(flex: 1),
-                      Expanded(
-                        flex: 3,
-                        child: Text(e['tarih']),
-                      ),
-                      Spacer(flex: 1),
-                      Expanded(
-                        flex: 3,
-                        child: Text(e['fatura_no']),
-                      ),
-                      Spacer(flex: 1),
-                      Expanded(
-                          flex: 3,
-                          child: IconButton(
-                            icon: Icon(Icons.edit),
-                            onPressed: () {
-                              //controller.onItemTapped(1);
-                            },
-                          )),
-                    ],
-                  ),
-                )),
-              ],
-            ),
+                    )),
+                  ],
+                ),
+              ),
+            ],
           ),
         ),
       ),
-      onNotification: (ScrollNotification? scrollInfo) {
-        firstScroll.jumpTo(secondScroll.offset);
-        return true;
-      },
     );
   }
 
   buildCreateForm(){
     return GetBuilder<FixturesController>(
         builder:((_){
-          return Stepper(physics: NeverScrollableScrollPhysics(),controlsBuilder: (BuildContext context, ControlsDetails controls) {
-            return Row(children: [
-              Expanded(
-                flex: 4,
-                child: TextButton(
-                  onPressed: controls.onStepContinue,
-                  child: Text(
-                    'continue'.tr,
+          return ListView(
+            shrinkWrap: false,
+            children: [
+              Stepper(physics: NeverScrollableScrollPhysics(),controlsBuilder: (BuildContext context, ControlsDetails controls) {
+                return Row(children: [
+                  Expanded(
+                    flex: 4,
+                    child: TextButton(
+                      onPressed: controls.onStepContinue,
+                      child: Text(
+                        'continue'.tr,
+                      ),
+                      style: TextButton.styleFrom(
+                          backgroundColor: Colors.blue, primary: Colors.white),
+                    ),
                   ),
-                  style: TextButton.styleFrom(
-                      backgroundColor: Colors.blue, primary: Colors.white),
-                ),
-              ),
-              Spacer(flex: 1),
-              Expanded(
-                flex: 4,
-                child: TextButton(
-                  onPressed: controls.onStepCancel,
-                  child: Text('cancel_stepper'.tr),
-                  style: TextButton.styleFrom(
-                      backgroundColor: Colors.red, primary: Colors.white),
-                ),
-              ),
-              Spacer(flex: 1),
-            ]);
-          },currentStep: _.currentStep,
-              onStepTapped: _.onStepTapped,
-              onStepCancel: _.onStepCancel,
-              onStepContinue: _.onStepContinue, steps: [buildFirstStep(),buildSecondStep(),buildThirdStep()]);
+                  Spacer(flex: 1),
+                  Expanded(
+                    flex: 4,
+                    child: TextButton(
+                      onPressed: controls.onStepCancel,
+                      child: Text('cancel_stepper'.tr),
+                      style: TextButton.styleFrom(
+                          backgroundColor: Colors.red, primary: Colors.white),
+                    ),
+                  ),
+                  Spacer(flex: 1),
+                ]);
+              },currentStep: _.currentStep,
+                  onStepTapped: _.onStepTapped,
+                  onStepCancel: _.onStepCancel,
+                  onStepContinue: _.onStepContinue, steps: [buildFirstStep(),buildSecondStep(),buildThirdStep()]),
+            ],
+          );
         })
     );
   }

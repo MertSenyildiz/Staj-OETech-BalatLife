@@ -13,10 +13,11 @@ final items=[buildDues(),buildCreateForm()];
 return Scaffold(
   appBar: AppBar(),
   body: GetBuilder<DuesController>(builder:((_){
-    return ListView(
+    return /*ListView(
       shrinkWrap: false,
       children: [items[_.currentIndex]],
-    );
+    );*/
+      items[_.currentIndex];
   })),
   bottomNavigationBar: GetBuilder<DuesController>(builder:(_){
     return BottomNavigationBar(onTap: _.onItemTapped, items: [
@@ -27,8 +28,6 @@ return Scaffold(
 );
 }
 
-ScrollController firstScroll = ScrollController();
-ScrollController secondScroll = ScrollController();
 
 List<Map<String, dynamic>> data = [
   {
@@ -70,246 +69,471 @@ buildDues(){
 
   return SingleChildScrollView(
     scrollDirection: Axis.horizontal,
-    controller: firstScroll,
     child: Container(
       width: height < 1600 ? 1600 : height,
-      child: StickyHeader(
-        header: SingleChildScrollView(
-          scrollDirection: Axis.horizontal,
-          controller: firstScroll,
-          //physics: NeverScrollableScrollPhysics(),
-          child: Container(
-            color: Theme.of(Get.context!).primaryColor,
-            width: height < 1600 ? 1600 : height,
-            height: 75,
-            child: Row(
-              children: [
-                Expanded(
-                  flex: 5,
-                  child: Text(
-                    "Dönem",
-                    style: style,
-                  ),
+      child: /*StickyHeader(
+        header: Container(
+          color: Theme.of(Get.context!).primaryColor,
+          width: height < 1600 ? 1600 : height,
+          height: 75,
+          child: Row(
+            children: [
+              Expanded(
+                flex: 5,
+                child: Text(
+                  "Dönem",
+                  style: style,
                 ),
-                Spacer(flex: 1),
-                Expanded(
-                  flex: 4,
-                  child: Text("Fatura", style: style),
-                ),
-                Spacer(flex: 1),
-                Expanded(
-                  flex: 3,
-                  child: Text("Tutar", style: style),
-                ),
-                Spacer(flex: 1),
-                Expanded(
-                  flex: 3,
-                  child: Text("Aidat", style: style),
-                ),
-                Spacer(flex: 1),
-                Expanded(
-                  flex: 3,
-                  child: Text("Elektrik", style: style),
-                ),
-                Spacer(flex: 1),
-                Expanded(
-                  flex: 3,
-                  child: Text("Sıcak Su", style: style),
-                ),
-                Spacer(flex: 1),
-                Expanded(
-                  flex: 3,
-                  child: Text("Su", style: style),
-                ),
-                Spacer(flex: 1),
-                Expanded(
-                  flex: 3,
-                  child: Text("Isınma", style: style),
-                ),
-                Spacer(flex: 1),
-                Expanded(
-                  flex: 3,
-                  child: Text("Asansör", style: style),
-                ),
-                Spacer(flex: 1),
-                Expanded(
-                  flex: 3,
-                  child: Text("Güvenlik", style: style),
-                ),
-                Spacer(flex: 1),
-                Expanded(
-                  flex: 3,
-                  child: Text("Bahçe", style: style),
-                ),
-                Spacer(flex: 1),
-                Expanded(
-                  flex: 3,
-                  child: Text("Havuz", style: style),
-                ),
-                Spacer(flex: 1),
-                Expanded(
-                  flex: 3,
-                  child: Text("Ek1", style: style),
-                ),
-                Spacer(flex: 1),
-                Expanded(
-                  flex: 3,
-                  child: Text("Ek2", style: style),
-                ),
-                Spacer(flex: 1),
-                Expanded(
-                  flex: 3,
-                  child: Text("Diğer", style: style),
-                ),
-                Spacer(flex: 1),
-                Expanded(
-                  flex: 2,
-                  child: Text("Fatura Okundu", style: style),
-                ),
-                Spacer(flex: 1),
-                Expanded(
-                  flex: 4,
-                  child: Text("Tarih", style: style),
-                ),
-                Spacer(flex: 1),
-                Expanded(
-                  flex: 3,
-                  child: Text("Düzenle", style: style),
-                ),
-                Spacer(flex: 1),
-                Expanded(
-                  flex: 3,
-                  child: Text("Yayınla", style: style),
-                ),
-              ],
-            ),
+              ),
+              Spacer(flex: 1),
+              Expanded(
+                flex: 4,
+                child: Text("Fatura", style: style),
+              ),
+              Spacer(flex: 1),
+              Expanded(
+                flex: 3,
+                child: Text("Tutar", style: style),
+              ),
+              Spacer(flex: 1),
+              Expanded(
+                flex: 3,
+                child: Text("Aidat", style: style),
+              ),
+              Spacer(flex: 1),
+              Expanded(
+                flex: 3,
+                child: Text("Elektrik", style: style),
+              ),
+              Spacer(flex: 1),
+              Expanded(
+                flex: 3,
+                child: Text("Sıcak Su", style: style),
+              ),
+              Spacer(flex: 1),
+              Expanded(
+                flex: 3,
+                child: Text("Su", style: style),
+              ),
+              Spacer(flex: 1),
+              Expanded(
+                flex: 3,
+                child: Text("Isınma", style: style),
+              ),
+              Spacer(flex: 1),
+              Expanded(
+                flex: 3,
+                child: Text("Asansör", style: style),
+              ),
+              Spacer(flex: 1),
+              Expanded(
+                flex: 3,
+                child: Text("Güvenlik", style: style),
+              ),
+              Spacer(flex: 1),
+              Expanded(
+                flex: 3,
+                child: Text("Bahçe", style: style),
+              ),
+              Spacer(flex: 1),
+              Expanded(
+                flex: 3,
+                child: Text("Havuz", style: style),
+              ),
+              Spacer(flex: 1),
+              Expanded(
+                flex: 3,
+                child: Text("Ek1", style: style),
+              ),
+              Spacer(flex: 1),
+              Expanded(
+                flex: 3,
+                child: Text("Ek2", style: style),
+              ),
+              Spacer(flex: 1),
+              Expanded(
+                flex: 3,
+                child: Text("Diğer", style: style),
+              ),
+              Spacer(flex: 1),
+              Expanded(
+                flex: 2,
+                child: Text("Fatura Okundu", style: style),
+              ),
+              Spacer(flex: 1),
+              Expanded(
+                flex: 4,
+                child: Text("Tarih", style: style),
+              ),
+              Spacer(flex: 1),
+              Expanded(
+                flex: 3,
+                child: Text("Düzenle", style: style),
+              ),
+              Spacer(flex: 1),
+              Expanded(
+                flex: 3,
+                child: Text("Yayınla", style: style),
+              ),
+            ],
           ),
         ),
-        content: SingleChildScrollView(
-          scrollDirection: Axis.horizontal,
-          controller: firstScroll,
-          child: Container(
-            width: height < 1600 ? 1600 : height,
-            child: Column(
-              children: [
-                ...data.map((e) => Container(
-                  height: 75,
-                  decoration: BoxDecoration(
-                    border: Border(
-                        bottom: BorderSide(
-                            color: Theme.of(Get.context!).primaryColor,
-                            width: 2)),
-                  ),
-                  child: Row(
-                    children: [
-                      Expanded(
-                        flex: 5,
-                        child: Text(e['donem']),
-                      ),
-                      Spacer(flex: 1),
-                      Expanded(
-                        flex: 4,
-                        child: Text(e['fatura']),
-                      ),
-                      Spacer(flex: 1),
-                      Expanded(
+        content: Container(
+          width: height < 1600 ? 1600 : height,
+          child: Column(
+            children: [
+              ...data.map((e) => Container(
+                height: 75,
+                decoration: BoxDecoration(
+                  border: Border(
+                      bottom: BorderSide(
+                          color: Theme.of(Get.context!).primaryColor,
+                          width: 2)),
+                ),
+                child: Row(
+                  children: [
+                    Expanded(
+                      flex: 5,
+                      child: Text(e['donem']),
+                    ),
+                    Spacer(flex: 1),
+                    Expanded(
+                      flex: 4,
+                      child: Text(e['fatura']),
+                    ),
+                    Spacer(flex: 1),
+                    Expanded(
+                      flex: 3,
+                      child: Text(e['tutar']),
+                    ),
+                    Spacer(flex: 1),
+                    Expanded(
+                      flex: 3,
+                      child:Text(e['aidat']),
+                    ),
+                    Spacer(flex: 1),
+                    Expanded(
+                      flex: 3,
+                      child: Text(e['elektrik']),
+                    ),
+                    Spacer(flex: 1),
+                    Expanded(
+                      flex: 3,
+                      child: Text(e['sicak_su']),
+                    ),
+                    Spacer(flex: 1),
+                    Expanded(
+                      flex: 3,
+                      child: Text(e['su']),
+                    ),
+                    Spacer(flex: 1),
+                    Expanded(
+                      flex: 3,
+                      child: Text(e['isinma']),
+                    ),
+                    Spacer(flex: 1),
+                    Expanded(
+                      flex: 3,
+                      child: Text(e['asansor']),
+                    ),
+                    Spacer(flex: 1),
+                    Expanded(
+                      flex: 3,
+                      child: Text(e['guvenlik']),
+                    ),
+                    Spacer(flex: 1),
+                    Expanded(
+                      flex: 3,
+                      child: Text(e['bahce']),
+                    ),
+                    Spacer(flex: 1),
+                    Expanded(
+                      flex: 3,
+                      child: Text(e['havuz']),
+                    ),
+                    Spacer(flex: 1),
+                    Expanded(
+                      flex: 3,
+                      child: Text(e['ek_1']),
+                    ),
+                    Spacer(flex: 1),
+                    Expanded(
+                      flex: 3,
+                      child: Text(e['ek_2']),
+                    ),
+                    Spacer(flex: 1),
+                    Expanded(
+                      flex: 3,
+                      child: Text(e['diger']),
+                    ),
+                    Spacer(flex: 1),
+                    Expanded(
+                      flex: 2,
+                      child: Text(e['okundu'].toString()),
+                    ),
+                    Spacer(flex: 1),
+                    Expanded(
+                      flex: 4,
+                      child: Text(e['tarih']),
+                    ),
+                    Spacer(flex: 1),
+                    Expanded(
                         flex: 3,
-                        child: Text(e['tutar']),
-                      ),
-                      Spacer(flex: 1),
-                      Expanded(
+                        child: IconButton(
+                          icon: Icon(Icons.edit),
+                          onPressed: () {
+                            //controller.onItemTapped(1);
+                          },
+                        )),
+                    Spacer(flex: 1),
+                    Expanded(
                         flex: 3,
-                        child:Text(e['aidat']),
-                      ),
-                      Spacer(flex: 1),
-                      Expanded(
-                        flex: 3,
-                        child: Text(e['elektrik']),
-                      ),
-                      Spacer(flex: 1),
-                      Expanded(
-                        flex: 3,
-                        child: Text(e['sicak_su']),
-                      ),
-                      Spacer(flex: 1),
-                      Expanded(
-                        flex: 3,
-                        child: Text(e['su']),
-                      ),
-                      Spacer(flex: 1),
-                      Expanded(
-                        flex: 3,
-                        child: Text(e['isinma']),
-                      ),
-                      Spacer(flex: 1),
-                      Expanded(
-                        flex: 3,
-                        child: Text(e['asansor']),
-                      ),
-                      Spacer(flex: 1),
-                      Expanded(
-                        flex: 3,
-                        child: Text(e['guvenlik']),
-                      ),
-                      Spacer(flex: 1),
-                      Expanded(
-                        flex: 3,
-                        child: Text(e['bahce']),
-                      ),
-                      Spacer(flex: 1),
-                      Expanded(
-                        flex: 3,
-                        child: Text(e['havuz']),
-                      ),
-                      Spacer(flex: 1),
-                      Expanded(
-                        flex: 3,
-                        child: Text(e['ek_1']),
-                      ),
-                      Spacer(flex: 1),
-                      Expanded(
-                        flex: 3,
-                        child: Text(e['ek_2']),
-                      ),
-                      Spacer(flex: 1),
-                      Expanded(
-                        flex: 3,
-                        child: Text(e['diger']),
-                      ),
-                      Spacer(flex: 1),
-                      Expanded(
-                        flex: 2,
-                        child: Text(e['okundu'].toString()),
-                      ),
-                      Spacer(flex: 1),
-                      Expanded(
-                        flex: 4,
-                        child: Text(e['tarih']),
-                      ),
-                      Spacer(flex: 1),
-                      Expanded(
-                          flex: 3,
-                          child: IconButton(
-                            icon: Icon(Icons.edit),
-                            onPressed: () {
-                              //controller.onItemTapped(1);
-                            },
-                          )),
-                      Spacer(flex: 1),
-                      Expanded(
-                          flex: 3,
-                          child: IconButton(
-                            icon: Icon(Icons.rss_feed),
-                            onPressed: () {
-                              //controller.onItemTapped(1);
-                            },
-                          )),
-                    ],
-                  ),
-                )),
-              ],
-            ),
+                        child: IconButton(
+                          icon: Icon(Icons.rss_feed),
+                          onPressed: () {
+                            //controller.onItemTapped(1);
+                          },
+                        )),
+                  ],
+                ),
+              )),
+            ],
           ),
+        ),
+      ),*/
+      StickyHeader(
+        header: Container(
+          color: Theme.of(Get.context!).primaryColor,
+          width: height < 1600 ? 1600 : height,
+          height: 75,
+          child: Row(
+            children: [
+              Expanded(
+                flex: 5,
+                child: Text(
+                  "Dönem",
+                  style: style,
+                ),
+              ),
+              Spacer(flex: 1),
+              Expanded(
+                flex: 4,
+                child: Text("Fatura", style: style),
+              ),
+              Spacer(flex: 1),
+              Expanded(
+                flex: 3,
+                child: Text("Tutar", style: style),
+              ),
+              Spacer(flex: 1),
+              Expanded(
+                flex: 3,
+                child: Text("Aidat", style: style),
+              ),
+              Spacer(flex: 1),
+              Expanded(
+                flex: 3,
+                child: Text("Elektrik", style: style),
+              ),
+              Spacer(flex: 1),
+              Expanded(
+                flex: 3,
+                child: Text("Sıcak Su", style: style),
+              ),
+              Spacer(flex: 1),
+              Expanded(
+                flex: 3,
+                child: Text("Su", style: style),
+              ),
+              Spacer(flex: 1),
+              Expanded(
+                flex: 3,
+                child: Text("Isınma", style: style),
+              ),
+              Spacer(flex: 1),
+              Expanded(
+                flex: 3,
+                child: Text("Asansör", style: style),
+              ),
+              Spacer(flex: 1),
+              Expanded(
+                flex: 3,
+                child: Text("Güvenlik", style: style),
+              ),
+              Spacer(flex: 1),
+              Expanded(
+                flex: 3,
+                child: Text("Bahçe", style: style),
+              ),
+              Spacer(flex: 1),
+              Expanded(
+                flex: 3,
+                child: Text("Havuz", style: style),
+              ),
+              Spacer(flex: 1),
+              Expanded(
+                flex: 3,
+                child: Text("Ek1", style: style),
+              ),
+              Spacer(flex: 1),
+              Expanded(
+                flex: 3,
+                child: Text("Ek2", style: style),
+              ),
+              Spacer(flex: 1),
+              Expanded(
+                flex: 3,
+                child: Text("Diğer", style: style),
+              ),
+              Spacer(flex: 1),
+              Expanded(
+                flex: 2,
+                child: Text("Fatura Okundu", style: style),
+              ),
+              Spacer(flex: 1),
+              Expanded(
+                flex: 4,
+                child: Text("Tarih", style: style),
+              ),
+              Spacer(flex: 1),
+              Expanded(
+                flex: 3,
+                child: Text("Düzenle", style: style),
+              ),
+              Spacer(flex: 1),
+              Expanded(
+                flex: 3,
+                child: Text("Yayınla", style: style),
+              ),
+            ],
+          ),
+        ),
+        content: ListView(
+          shrinkWrap: false,
+          children: [
+            Container(
+              width: height < 1600 ? 1600 : height,
+              child: Column(
+                children: [
+                  ...data.map((e) => Container(
+                    height: 75,
+                    decoration: BoxDecoration(
+                      border: Border(
+                          bottom: BorderSide(
+                              color: Theme.of(Get.context!).primaryColor,
+                              width: 2)),
+                    ),
+                    child: Row(
+                      children: [
+                        Expanded(
+                          flex: 5,
+                          child: Text(e['donem']),
+                        ),
+                        Spacer(flex: 1),
+                        Expanded(
+                          flex: 4,
+                          child: Text(e['fatura']),
+                        ),
+                        Spacer(flex: 1),
+                        Expanded(
+                          flex: 3,
+                          child: Text(e['tutar']),
+                        ),
+                        Spacer(flex: 1),
+                        Expanded(
+                          flex: 3,
+                          child:Text(e['aidat']),
+                        ),
+                        Spacer(flex: 1),
+                        Expanded(
+                          flex: 3,
+                          child: Text(e['elektrik']),
+                        ),
+                        Spacer(flex: 1),
+                        Expanded(
+                          flex: 3,
+                          child: Text(e['sicak_su']),
+                        ),
+                        Spacer(flex: 1),
+                        Expanded(
+                          flex: 3,
+                          child: Text(e['su']),
+                        ),
+                        Spacer(flex: 1),
+                        Expanded(
+                          flex: 3,
+                          child: Text(e['isinma']),
+                        ),
+                        Spacer(flex: 1),
+                        Expanded(
+                          flex: 3,
+                          child: Text(e['asansor']),
+                        ),
+                        Spacer(flex: 1),
+                        Expanded(
+                          flex: 3,
+                          child: Text(e['guvenlik']),
+                        ),
+                        Spacer(flex: 1),
+                        Expanded(
+                          flex: 3,
+                          child: Text(e['bahce']),
+                        ),
+                        Spacer(flex: 1),
+                        Expanded(
+                          flex: 3,
+                          child: Text(e['havuz']),
+                        ),
+                        Spacer(flex: 1),
+                        Expanded(
+                          flex: 3,
+                          child: Text(e['ek_1']),
+                        ),
+                        Spacer(flex: 1),
+                        Expanded(
+                          flex: 3,
+                          child: Text(e['ek_2']),
+                        ),
+                        Spacer(flex: 1),
+                        Expanded(
+                          flex: 3,
+                          child: Text(e['diger']),
+                        ),
+                        Spacer(flex: 1),
+                        Expanded(
+                          flex: 2,
+                          child: Text(e['okundu'].toString()),
+                        ),
+                        Spacer(flex: 1),
+                        Expanded(
+                          flex: 4,
+                          child: Text(e['tarih']),
+                        ),
+                        Spacer(flex: 1),
+                        Expanded(
+                            flex: 3,
+                            child: IconButton(
+                              icon: Icon(Icons.edit),
+                              onPressed: () {
+                                //controller.onItemTapped(1);
+                              },
+                            )),
+                        Spacer(flex: 1),
+                        Expanded(
+                            flex: 3,
+                            child: IconButton(
+                              icon: Icon(Icons.rss_feed),
+                              onPressed: () {
+                                //controller.onItemTapped(1);
+                              },
+                            )),
+                      ],
+                    ),
+                  )),
+                ],
+              ),
+            ),
+          ],
         ),
       ),
     ),
@@ -318,38 +542,43 @@ buildDues(){
 
 buildCreateForm(){
   return GetBuilder<DuesController>(builder: ((_){
-    return Stepper(
-      physics: NeverScrollableScrollPhysics(),controlsBuilder: (BuildContext context, ControlsDetails controls) {
-      return Row(children: [
-        Expanded(
-          flex: 4,
-          child: TextButton(
-            onPressed: controls.onStepContinue,
-            child: Text(
-              'continue'.tr,
+    return ListView(
+      shrinkWrap: false,
+      children: [
+        Stepper(
+          physics: NeverScrollableScrollPhysics(),controlsBuilder: (BuildContext context, ControlsDetails controls) {
+          return Row(children: [
+            Expanded(
+              flex: 4,
+              child: TextButton(
+                onPressed: controls.onStepContinue,
+                child: Text(
+                  'continue'.tr,
+                ),
+                style: TextButton.styleFrom(
+                    backgroundColor: Colors.blue, primary: Colors.white),
+              ),
             ),
-            style: TextButton.styleFrom(
-                backgroundColor: Colors.blue, primary: Colors.white),
-          ),
+            Spacer(flex: 1),
+            Expanded(
+              flex: 4,
+              child: TextButton(
+                onPressed: controls.onStepCancel,
+                child: Text('cancel_stepper'.tr),
+                style: TextButton.styleFrom(
+                    backgroundColor: Colors.red, primary: Colors.white),
+              ),
+            ),
+            Spacer(flex: 1),
+          ]);
+        },
+          currentStep:_.currentStep,
+          onStepContinue: _.onStepContinue,
+          onStepCancel:_.onStepCancel,
+          onStepTapped: _.onStepTapped,
+          steps: [buildFirstStep(),buildSecondStep(),buildThirdStep()],
         ),
-        Spacer(flex: 1),
-        Expanded(
-          flex: 4,
-          child: TextButton(
-            onPressed: controls.onStepCancel,
-            child: Text('cancel_stepper'.tr),
-            style: TextButton.styleFrom(
-                backgroundColor: Colors.red, primary: Colors.white),
-          ),
-        ),
-        Spacer(flex: 1),
-      ]);
-    },
-      currentStep:_.currentStep,
-      onStepContinue: _.onStepContinue,
-      onStepCancel:_.onStepCancel,
-      onStepTapped: _.onStepTapped,
-      steps: [buildFirstStep(),buildSecondStep(),buildThirdStep()],
+      ],
     );
   }));
 }

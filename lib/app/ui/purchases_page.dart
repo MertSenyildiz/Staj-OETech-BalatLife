@@ -130,20 +130,13 @@ class PurchasesPage extends GetView<PurchasesController> {
       fontSize: 20,
       color: Colors.white,
       overflow: TextOverflow.ellipsis);
-  ScrollController controller1 = ScrollController();
-  ScrollController controller2 = ScrollController();
   @override
   Widget build(BuildContext context) {
     List items = [buildPurchases(), buildCreate()];
     return Scaffold(
       appBar: AppBar(),
       body: GetBuilder<PurchasesController>(builder: ((_) {
-        return ListView(
-          shrinkWrap: false,
-          children: [
-            items[_.currentIndex],
-          ],
-        );
+        return items[_.currentIndex];
       })),
       bottomNavigationBar: GetBuilder<PurchasesController>(builder: ((_) {
         return BottomNavigationBar(
@@ -161,13 +154,12 @@ class PurchasesPage extends GetView<PurchasesController> {
   }
 
   buildPurchases() {
-    return NotificationListener<ScrollNotification>(
-      child: StickyHeader(
-        header: SingleChildScrollView(
-          scrollDirection: Axis.horizontal,
-          controller: controller1,
-          physics: NeverScrollableScrollPhysics(),
-          child: Container(
+    return SingleChildScrollView(
+      scrollDirection: Axis.horizontal,
+      child: Container(
+        width: Get.context!.height < 720 ? 720 : Get.context!.height,
+        child: StickyHeader(
+          header: Container(
             width: Get.context!.height < 720 ? 720 : Get.context!.height,
             color: Theme.of(Get.context!).primaryColor,
             height: 75,
@@ -213,111 +205,113 @@ class PurchasesPage extends GetView<PurchasesController> {
               ],
             ),
           ),
-        ),
-        content: SingleChildScrollView(
-          scrollDirection: Axis.horizontal,
-          controller: controller2,
-          child: Container(
-            width: Get.context!.width < 720 ? 720 : Get.context!.width,
-            child: Column(
-              children: [
-                ...data.map((e) => Container(
-                      height: 75,
-                      decoration: BoxDecoration(
-                        border: Border(
-                            bottom: BorderSide(
-                                color: Theme.of(Get.context!).primaryColor,
-                                width: 2)),
-                      ),
-                      child: Row(
-                        children: [
-                          Expanded(
-                            flex: 3,
-                            child: Text(e['g_grubu']),
+          content: ListView(
+            shrinkWrap: false,
+            children: [
+              Container(
+                width: Get.context!.width < 720 ? 720 : Get.context!.width,
+                child: Column(
+                  children: [
+                    ...data.map((e) => Container(
+                          height: 75,
+                          decoration: BoxDecoration(
+                            border: Border(
+                                bottom: BorderSide(
+                                    color: Theme.of(Get.context!).primaryColor,
+                                    width: 2)),
                           ),
-                          Spacer(flex: 1),
-                          Expanded(
-                            flex: 3,
-                            child: Text(e['g_adi']),
+                          child: Row(
+                            children: [
+                              Expanded(
+                                flex: 3,
+                                child: Text(e['g_grubu']),
+                              ),
+                              Spacer(flex: 1),
+                              Expanded(
+                                flex: 3,
+                                child: Text(e['g_adi']),
+                              ),
+                              Spacer(flex: 1),
+                              Expanded(
+                                flex: 3,
+                                child: Text(e['aciklama']),
+                              ),
+                              Spacer(flex: 1),
+                              Expanded(
+                                flex: 3,
+                                child: Container(
+                                    color: Colors.green,
+                                    child: Center(child: Text(e['tutar']))),
+                              ),
+                              Spacer(flex: 1),
+                              Expanded(
+                                flex: 3,
+                                child: Text(e['tarih']),
+                              ),
+                              Spacer(flex: 1),
+                              Expanded(
+                                flex: 3,
+                                child: Text(e['fatura_no']),
+                              ),
+                              Spacer(flex: 1),
+                              Expanded(
+                                  flex: 3,
+                                  child: IconButton(
+                                    icon: Icon(Icons.edit),
+                                    onPressed: () {
+                                      //controller.onItemTapped(1);
+                                    },
+                                  )),
+                            ],
                           ),
-                          Spacer(flex: 1),
-                          Expanded(
-                            flex: 3,
-                            child: Text(e['aciklama']),
-                          ),
-                          Spacer(flex: 1),
-                          Expanded(
-                            flex: 3,
-                            child: Container(
-                                color: Colors.green,
-                                child: Center(child: Text(e['tutar']))),
-                          ),
-                          Spacer(flex: 1),
-                          Expanded(
-                            flex: 3,
-                            child: Text(e['tarih']),
-                          ),
-                          Spacer(flex: 1),
-                          Expanded(
-                            flex: 3,
-                            child: Text(e['fatura_no']),
-                          ),
-                          Spacer(flex: 1),
-                          Expanded(
-                              flex: 3,
-                              child: IconButton(
-                                icon: Icon(Icons.edit),
-                                onPressed: () {
-                                  //controller.onItemTapped(1);
-                                },
-                              )),
-                        ],
-                      ),
-                    )),
-              ],
-            ),
+                        )),
+                  ],
+                ),
+              ),
+            ],
           ),
         ),
       ),
-      onNotification: (ScrollNotification? scrollInfo) {
-        controller1.jumpTo(controller2.offset);
-        return true;
-      },
     );
   }
 
   buildCreate() {
     return GetBuilder<PurchasesController>(
       builder:((_){
-        return Stepper(physics: NeverScrollableScrollPhysics(),controlsBuilder: (BuildContext context, ControlsDetails controls) {
-          return Row(children: [
-            Expanded(
-              flex: 4,
-              child: TextButton(
-                onPressed: controls.onStepContinue,
-                child: Text(
-                  'continue'.tr,
+        return ListView(
+          shrinkWrap: false,
+          children: [
+            Stepper(physics: NeverScrollableScrollPhysics(),controlsBuilder: (BuildContext context, ControlsDetails controls) {
+              return Row(children: [
+                Expanded(
+                  flex: 4,
+                  child: TextButton(
+                    onPressed: controls.onStepContinue,
+                    child: Text(
+                      'continue'.tr,
+                    ),
+                    style: TextButton.styleFrom(
+                        backgroundColor: Colors.blue, primary: Colors.white),
+                  ),
                 ),
-                style: TextButton.styleFrom(
-                    backgroundColor: Colors.blue, primary: Colors.white),
-              ),
-            ),
-            Spacer(flex: 1),
-            Expanded(
-              flex: 4,
-              child: TextButton(
-                onPressed: controls.onStepCancel,
-                child: Text('cancel_stepper'.tr),
-                style: TextButton.styleFrom(
-                    backgroundColor: Colors.red, primary: Colors.white),
-              ),
-            ),
-            Spacer(flex: 1),
-          ]);
-        },currentStep: _.currentStep,
-            onStepTapped: _.onStepTapped,
-            onStepCancel: _.onStepCancel,
-            onStepContinue: _.onStepContinue, steps: [buildFirstStep(),buildSecondStep(),buildThirdStep()]);
+                Spacer(flex: 1),
+                Expanded(
+                  flex: 4,
+                  child: TextButton(
+                    onPressed: controls.onStepCancel,
+                    child: Text('cancel_stepper'.tr),
+                    style: TextButton.styleFrom(
+                        backgroundColor: Colors.red, primary: Colors.white),
+                  ),
+                ),
+                Spacer(flex: 1),
+              ]);
+            },currentStep: _.currentStep,
+                onStepTapped: _.onStepTapped,
+                onStepCancel: _.onStepCancel,
+                onStepContinue: _.onStepContinue, steps: [buildFirstStep(),buildSecondStep(),buildThirdStep()]),
+          ],
+        );
     })
     );
   }
