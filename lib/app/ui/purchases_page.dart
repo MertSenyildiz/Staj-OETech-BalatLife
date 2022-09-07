@@ -158,9 +158,11 @@ class PurchasesPage extends GetView<PurchasesController> {
       scrollDirection: Axis.horizontal,
       child: Container(
         width: Get.context!.height < 720 ? 720 : Get.context!.height,
+          constraints:null,
         child: StickyHeader(
           header: Container(
-            width: Get.context!.height < 720 ? 720 : Get.context!.height,
+            constraints:null,
+            //width: Get.context!.height < 720 ? 720 : Get.context!.height,
             color: Theme.of(Get.context!).primaryColor,
             height: 75,
             child: Row(
