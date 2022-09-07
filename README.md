@@ -1,4 +1,4 @@
-# balatlife
+# Staj-OETech-BalatLife
 
 A new Flutter project.
 
